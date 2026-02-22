@@ -7,6 +7,10 @@ class Ship {
   isSunk() {
     return this.health === 0;
   }
+
+  hit() {
+    this.isSunk() ? this.health : --this.health;
+  }
 }
 
 export { Ship };

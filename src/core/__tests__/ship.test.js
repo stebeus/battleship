@@ -22,4 +22,15 @@ describe("Ship.isSunk", () => {
   });
 });
 
-describe("Ship.hit", () => {});
+describe("Ship.hit", () => {
+  it("reduces ship health by 1 hit", () => {
+    // Arrange
+    ship.health = 3;
+
+    // Act
+    ship.hit();
+
+    // Assert
+    expect(ship.health).toBe(2);
+  });
+});

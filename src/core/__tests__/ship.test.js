@@ -11,4 +11,8 @@ it("creates a ship of length 1 by default", () => {
   expect(ship).toHaveLength(1);
 });
 
-describe("Ship.isSunk", () => {});
+describe("Ship.isSunk", () => {
+  it("confirms if ship is not sunk", () => {
+    expect(ship.isSunk()).toBeFalsy();
+  });
+});

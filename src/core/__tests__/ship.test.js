@@ -33,4 +33,15 @@ describe("Ship.hit", () => {
     // Assert
     expect(ship.health).toBe(2);
   });
+
+  it("stops reducing ship health when it is 0", () => {
+    // Arrange
+    ship.health = 0;
+
+    // Act
+    ship.hit();
+
+    // Assert
+    expect(ship.health).toBe(0);
+  });
 });

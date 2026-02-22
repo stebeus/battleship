@@ -13,4 +13,9 @@ describe("createDivision", () => {
       expect(division[0]).toHaveLength(1);
     });
   });
+
+  it("creates a division of 5 ships", () => {
+    const division = createDivision(5);
+    expect(division).toHaveLength(5);
+  });
 });

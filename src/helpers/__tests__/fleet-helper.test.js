@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createDivision } from "../fleet-helper";
+import { createDivision, createFleet } from "../fleet-helper";
 
 describe("createDivision", () => {
   describe("Default behavior", () => {
@@ -31,4 +31,15 @@ describe("createDivision", () => {
   });
 });
 
-describe("createFleet", () => {});
+describe("createFleet", () => {
+  it("creates a fleet with no subarrays", () => {
+    // Arrange
+    const fleet = createFleet(5);
+
+    // Act
+    const isArray = (item) => Array.isArray(item);
+
+    // Assert
+    expect(fleet.every(isArray)).toBeFalsy();
+  });
+});

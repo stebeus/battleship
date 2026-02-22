@@ -18,4 +18,15 @@ describe("createDivision", () => {
     const division = createDivision(5);
     expect(division).toHaveLength(5);
   });
+
+  it("only has ships of length 5", () => {
+    // Arrange
+    const division = createDivision(5, 5);
+
+    // Act
+    const isShipLengthFive = (ship) => ship.length === 5;
+
+    // Assert
+    expect(division.every(isShipLengthFive)).toBeTruthy();
+  });
 });

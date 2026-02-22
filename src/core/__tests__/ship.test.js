@@ -15,4 +15,9 @@ describe("Ship.isSunk", () => {
   it("confirms if ship is not sunk", () => {
     expect(ship.isSunk()).toBeFalsy();
   });
+
+  it("confirms if ship is sunk", () => {
+    ship.health = 0;
+    expect(ship.isSunk()).toBeTruthy();
+  });
 });

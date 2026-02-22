@@ -22,4 +22,9 @@ describe("GameBoard.place", () => {
     [0, ship, 0],
     [0, ship, 0],
   ];
+
+  it("places ship horizontally", () => {
+    gameBoard.place(5, 1, 1, "x");
+    expect(gameBoard.grid).toStrictEqual(horizontalShip);
+  });
 });

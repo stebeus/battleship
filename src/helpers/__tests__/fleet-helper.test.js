@@ -30,3 +30,5 @@ describe("createDivision", () => {
     expect(division.every(isShipLengthFive)).toBeTruthy();
   });
 });
+
+describe("createFleet", () => {});

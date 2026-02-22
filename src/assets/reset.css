@@ -1,0 +1,71 @@
+/* CSS DIRECTORY
+  1. GLOBAL
+  2. MEDIA
+  3. FORM CONTROLS
+  4. TEXT OVERFLOW
+  5. LINE WRAPPING
+*/
+
+/* || GLOBAL */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  line-height: calc(1em + 0.5rem);
+
+  &:not(dialog) {
+    margin: 0;
+  }
+}
+
+/* || MEDIA */
+
+canvas,
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* || FORM CONTROLS */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* || TEXT OVERFLOW */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+/* || LINE WRAPPING */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}

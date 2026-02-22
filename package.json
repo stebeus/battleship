@@ -1,0 +1,22 @@
+{
+  "name": "battleship",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.4",
+    "vite": "8.0.0-beta.15",
+    "vitest": "^4.0.18"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "^8.0.0-beta.13"
+    }
+  }
+}

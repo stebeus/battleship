@@ -27,4 +27,9 @@ describe("GameBoard.place", () => {
     gameBoard.place(5, 1, 1, "x");
     expect(gameBoard.grid).toStrictEqual(horizontalShip);
   });
+
+  it("places ship vertically", () => {
+    gameBoard.place(5, 1, 1, "y");
+    expect(gameBoard.grid).toStrictEqual(verticalShip);
+  });
 });

@@ -1,4 +1,4 @@
-import { beforeEach, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { Ship } from "../ship";
 
 let ship;
@@ -10,3 +10,5 @@ beforeEach(() => {
 it("creates a ship of length 1 by default", () => {
   expect(ship).toHaveLength(1);
 });
+
+describe("Ship.isSunk", () => {});

@@ -16,4 +16,10 @@ describe("GameBoard.place", () => {
     [0, ship, ship],
     [0, 0, 0],
   ];
+
+  const verticalPlacement = [
+    [0, 0, 0],
+    [0, ship, 0],
+    [0, ship, 0],
+  ];
 });

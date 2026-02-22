@@ -10,4 +10,10 @@ describe("GameBoard.place", () => {
   beforeEach(() => {
     gameBoard.grid = createGrid(3, 3);
   });
+
+  const horizontalPlacement = [
+    [0, 0, 0],
+    [0, ship, ship],
+    [0, 0, 0],
+  ];
 });

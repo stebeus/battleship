@@ -37,7 +37,7 @@ describe("createFleet", () => {
     const fleet = createFleet(5);
 
     // Act
-    const isArray = (item) => Array.isArray(item);
+    const isArray = (division) => Array.isArray(division);
 
     // Assert
     expect(fleet.every(isArray)).toBeFalsy();

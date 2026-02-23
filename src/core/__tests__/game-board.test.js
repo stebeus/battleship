@@ -6,6 +6,7 @@ import { Ship } from "../ship";
 const gameBoard = new GameBoard();
 
 describe("GameBoard.place", () => {
+  // Shared setup for the ship and expected grids
   const ship = new Ship(2);
 
   const horizontalPlacement = [

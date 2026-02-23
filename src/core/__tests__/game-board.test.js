@@ -6,10 +6,6 @@ import { Ship } from "../ship";
 const gameBoard = new GameBoard();
 
 describe("GameBoard.place", () => {
-  beforeEach(() => {
-    gameBoard.grid = createGrid(3, 3);
-  });
-
   const ship = new Ship(2);
 
   const horizontalPlacement = [
@@ -25,6 +21,10 @@ describe("GameBoard.place", () => {
   ];
 
   describe("Valid placements", () => {
+    beforeEach(() => {
+      gameBoard.grid = createGrid(3, 3);
+    });
+
     it("places ship horizontally", () => {
       gameBoard.place(5, 1, 1, "x");
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
@@ -69,6 +69,7 @@ describe("GameBoard.place", () => {
 
     it("prevents placing ship when space is insufficient", () => {
       // Arrange
+      gameBoard.grid = createGrid(3, 3);
       const emptyGrid = createGrid(3, 3);
 
       // Act

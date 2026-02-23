@@ -51,6 +51,21 @@ describe("GameBoard.place", () => {
       // Assert
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
+
+    it("does not place a ship adjacent to another", () => {
+      // Arrange
+      gameBoard.grid = [
+        [0, 0, 0],
+        [0, ship, ship],
+        [0, 0, 0],
+      ];
+
+      // Act
+      gameBoard.place(5, 0, 0, "y");
+
+      // Assert
+      expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+    });
   });
 });
 

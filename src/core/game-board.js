@@ -10,6 +10,11 @@ class GameBoard {
     this.grid = createGrid(10, 10);
   }
 
+  #isCellEmpty(row, column) {
+    const cell = this.grid[row][column];
+    return cell === this.#empty;
+  }
+
   place(shipIndex, row, column, axis) {
     const ship = this.fleet[shipIndex];
 

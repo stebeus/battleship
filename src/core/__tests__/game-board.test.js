@@ -54,4 +54,9 @@ describe("GameBoard.receiveAttack", () => {
       expect(ship.health).toBe(1);
     });
   });
+
+  it("registers missed shots", () => {
+    gameBoard.receiveAttack(0, 0);
+    expect(gameBoard.grid[0]).toStrictEqual(["m", ship, ship]);
+  });
 });

@@ -38,4 +38,6 @@ describe("GameBoard.receiveAttack", () => {
   beforeEach(() => {
     gameBoard.grid[0] = [0, ship, ship];
   });
+
+  describe("Hit shots", () => {});
 });

@@ -44,5 +44,10 @@ describe("GameBoard.receiveAttack", () => {
       gameBoard.receiveAttack(0, 1);
       expect(gameBoard.grid[0]).toStrictEqual([0, "h", ship]);
     });
+
+    it("reduces the targeted ship health", () => {
+      gameBoard.receiveAttack(0, 1);
+      expect(ship.health).toBe(1);
+    });
   });
 });

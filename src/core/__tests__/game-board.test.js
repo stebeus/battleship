@@ -72,3 +72,5 @@ describe("GameBoard.receiveAttack", () => {
     expect(gameBoard.grid[0]).toStrictEqual(["m", "h", ship]);
   });
 });
+
+describe("GameBoard.isFleetSunk", () => {});

@@ -59,4 +59,16 @@ describe("GameBoard.receiveAttack", () => {
     gameBoard.receiveAttack(0, 0);
     expect(gameBoard.grid[0]).toStrictEqual(["m", ship, ship]);
   });
+
+  it("does not alter registered shots", () => {
+    // Arrange
+    gameBoard.grid[0] = ["m", "h", ship];
+
+    // Act
+    gameBoard.receiveAttack(0, 0);
+    gameBoard.receiveAttack(0, 1);
+
+    // Assert
+    expect(gameBoard.grid[0]).toStrictEqual(["m", "h", ship]);
+  });
 });

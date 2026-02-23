@@ -16,6 +16,8 @@ class GameBoard {
   }
 
   place(shipIndex, row, column, axis) {
+    if (!this.#isCellEmpty(row, column)) return;
+
     const ship = this.fleet[shipIndex];
 
     for (let cell = 0; cell < ship.length; cell++) {

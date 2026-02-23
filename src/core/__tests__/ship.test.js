@@ -1,17 +1,18 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { Ship } from "../ship";
 
-let ship;
-
-beforeEach(() => {
-  ship = new Ship();
-});
-
 it("creates a ship of length 1 by default", () => {
+  const ship = new Ship();
   expect(ship).toHaveLength(1);
 });
 
 describe("Ship.isSunk", () => {
+  let ship;
+
+  beforeEach(() => {
+    ship = new Ship();
+  });
+
   it("confirms if ship is not sunk", () => {
     expect(ship.isSunk()).toBeFalsy();
   });
@@ -25,7 +26,7 @@ describe("Ship.isSunk", () => {
 describe("Ship.hit", () => {
   it("reduces ship health by 1 hit", () => {
     // Arrange
-    ship.health = 3;
+    const ship = new Ship(3);
 
     // Act
     ship.hit();
@@ -36,7 +37,7 @@ describe("Ship.hit", () => {
 
   it("stops reducing ship health when it is 0", () => {
     // Arrange
-    ship.health = 0;
+    const ship = new Ship(0);
 
     // Act
     ship.hit();

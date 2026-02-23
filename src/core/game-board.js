@@ -3,6 +3,8 @@ import { createGrid } from "../helpers/grid-helper";
 import { Ship } from "./ship";
 
 class GameBoard {
+  #empty = 0;
+
   constructor() {
     this.fleet = createFleet(4);
     this.grid = createGrid(10, 10);

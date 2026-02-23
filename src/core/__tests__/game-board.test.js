@@ -39,5 +39,10 @@ describe("GameBoard.receiveAttack", () => {
     gameBoard.grid[0] = [0, ship, ship];
   });
 
-  describe("Hit shots", () => {});
+  describe("Hit shots", () => {
+    it("registers hit shots", () => {
+      gameBoard.receiveAttack(0, 1);
+      expect(gameBoard.grid[0]).toStrictEqual([0, "h", ship]);
+    });
+  });
 });

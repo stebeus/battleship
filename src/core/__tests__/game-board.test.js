@@ -66,6 +66,17 @@ describe("GameBoard.place", () => {
       // Assert
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
+
+    it("does not place ship when space is insufficient", () => {
+      // Arrange
+      const emptyGrid = createGrid(3, 3);
+
+      // Act
+      gameBoard.place(5, 2, 2, "x");
+
+      // Assert
+      expect(gameBoard.grid).toStrictEqual(emptyGrid);
+    });
   });
 });
 

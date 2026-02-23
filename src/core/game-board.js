@@ -1,5 +1,6 @@
 import { createFleet } from "../helpers/fleet-helper";
 import { createGrid } from "../helpers/grid-helper";
+import { Ship } from "./ship";
 
 class GameBoard {
   constructor() {
@@ -13,6 +14,16 @@ class GameBoard {
     for (let cell = 0; cell < ship.length; cell++) {
       if (axis === "x") this.grid[row][column++] = ship;
       if (axis === "y") this.grid[row++][column] = ship;
+    }
+  }
+
+  receiveAttack(row, column) {
+    const cell = this.grid[row][column];
+    const hit = "h";
+
+    if (cell instanceof Ship) {
+      this.grid[row][column] = hit;
+      cell.hit();
     }
   }
 }

@@ -4,12 +4,13 @@ import { GameBoard } from "../game-board";
 import { Ship } from "../ship";
 
 const gameBoard = new GameBoard();
-const ship = new Ship(2);
 
 describe("GameBoard.place", () => {
   beforeEach(() => {
     gameBoard.grid = createGrid(3, 3);
   });
+
+  const ship = new Ship(2);
 
   const horizontalPlacement = [
     [0, 0, 0],
@@ -25,17 +26,20 @@ describe("GameBoard.place", () => {
 
   it("places ship horizontally", () => {
     gameBoard.place(5, 1, 1, "x");
-    expect(gameBoard.grid).toStrictEqual(horizontalShip);
+    expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
   });
 
   it("places ship vertically", () => {
     gameBoard.place(5, 1, 1, "y");
-    expect(gameBoard.grid).toStrictEqual(verticalShip);
+    expect(gameBoard.grid).toStrictEqual(verticalPlacement);
   });
 });
 
 describe("GameBoard.receiveAttack", () => {
+  let ship;
+
   beforeEach(() => {
+    ship = new Ship(2);
     gameBoard.grid[0] = [0, ship, ship];
   });
 

@@ -88,4 +88,15 @@ describe("GameBoard.isFleetSunk", () => {
     // Assert
     expect(gameBoard.isFleetSunk()).toBeFalsy();
   });
+
+  it("confirms if fleet is sunk", () => {
+    gameBoard.grid = [
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+      [0, 0, 0, 0],
+    ];
+
+    expect(gameBoard.isFleetSunk()).toBeTruthy();
+  });
 });

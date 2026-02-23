@@ -33,3 +33,5 @@ describe("GameBoard.place", () => {
     expect(gameBoard.grid).toStrictEqual(verticalShip);
   });
 });
+
+describe("GameBoard.receiveAttack", () => {});

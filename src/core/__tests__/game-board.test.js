@@ -37,7 +37,7 @@ describe("GameBoard.place", () => {
   });
 
   describe("Invalid placements", () => {
-    it("does not place ship on occupied cells", () => {
+    it("prevents placing ship on occupied cells", () => {
       // Arrange
       gameBoard.grid = [
         [0, 0, 0],
@@ -52,7 +52,7 @@ describe("GameBoard.place", () => {
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
 
-    it("does not place a ship adjacent to another", () => {
+    it("prevents placing a ship adjacent to another", () => {
       // Arrange
       gameBoard.grid = [
         [0, 0, 0],
@@ -67,7 +67,7 @@ describe("GameBoard.place", () => {
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
 
-    it("does not place ship when space is insufficient", () => {
+    it("prevents placing ship when space is insufficient", () => {
       // Arrange
       const emptyGrid = createGrid(3, 3);
 

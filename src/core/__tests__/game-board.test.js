@@ -34,4 +34,8 @@ describe("GameBoard.place", () => {
   });
 });
 
-describe("GameBoard.receiveAttack", () => {});
+describe("GameBoard.receiveAttack", () => {
+  beforeEach(() => {
+    gameBoard.grid[0] = [0, ship, ship];
+  });
+});

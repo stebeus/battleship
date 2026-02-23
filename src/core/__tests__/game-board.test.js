@@ -34,7 +34,22 @@ describe("GameBoard.place", () => {
     expect(gameBoard.grid).toStrictEqual(verticalPlacement);
   });
 
-  describe("Invalid placements", () => {});
+  describe("Invalid placements", () => {
+    it("does not place ship on occupied cells", () => {
+      // Arrange
+      gameBoard.grid = [
+        [0, 0, 0],
+        [0, ship, ship],
+        [0, 0, 0],
+      ];
+
+      // Act
+      gameBoard.place(5, 1, 1, "y");
+
+      // Assert
+      expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+    });
+  });
 });
 
 describe("GameBoard.receiveAttack", () => {

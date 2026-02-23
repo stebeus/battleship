@@ -24,14 +24,16 @@ describe("GameBoard.place", () => {
     [0, ship, 0],
   ];
 
-  it("places ship horizontally", () => {
-    gameBoard.place(5, 1, 1, "x");
-    expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
-  });
+  describe("Valid placements", () => {
+    it("places ship horizontally", () => {
+      gameBoard.place(5, 1, 1, "x");
+      expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+    });
 
-  it("places ship vertically", () => {
-    gameBoard.place(5, 1, 1, "y");
-    expect(gameBoard.grid).toStrictEqual(verticalPlacement);
+    it("places ship vertically", () => {
+      gameBoard.place(5, 1, 1, "y");
+      expect(gameBoard.grid).toStrictEqual(verticalPlacement);
+    });
   });
 
   describe("Invalid placements", () => {

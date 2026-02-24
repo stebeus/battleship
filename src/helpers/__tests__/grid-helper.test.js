@@ -11,7 +11,7 @@ it("creates a grid with 9 columns", () => {
   expect(grid[0]).toHaveLength(9);
 });
 
-it("empty cells are represented as 0", () => {
+it("represents empty cells as 0", () => {
   // Arrange
   const isEmptyCellZero = (cell) => cell === 0;
 

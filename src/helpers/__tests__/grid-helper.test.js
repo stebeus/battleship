@@ -3,11 +3,11 @@ import { createGrid } from "../grid-helper";
 
 const grid = createGrid(10, 9);
 
-it("creates a grid with 10 rows", () => {
+it("creates a 10 row grid", () => {
   expect(grid).toHaveLength(10);
 });
 
-it("creates a grid with 9 columns", () => {
+it("creates a 9 column grid", () => {
   expect(grid[0]).toHaveLength(9);
 });
 

@@ -13,11 +13,11 @@ describe("Ship.isSunk", () => {
     ship = new Ship();
   });
 
-  it("confirms if ship is not sunk", () => {
+  it("confirms that the ship is not sunk", () => {
     expect(ship.isSunk()).toBeFalsy();
   });
 
-  it("confirms if ship is sunk", () => {
+  it("confirms that the ship is sunk", () => {
     ship.health = 0;
     expect(ship.isSunk()).toBeTruthy();
   });

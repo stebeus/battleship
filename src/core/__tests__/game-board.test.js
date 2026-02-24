@@ -121,7 +121,7 @@ describe("GameBoard.receiveAttack", () => {
 });
 
 describe("GameBoard.isFleetSunk", () => {
-  it("confirms if fleet is not sunk", () => {
+  it("confirms that the fleet is not sunk", () => {
     const ship = new Ship(2);
 
     gameBoard.grid = [
@@ -134,7 +134,7 @@ describe("GameBoard.isFleetSunk", () => {
     expect(gameBoard.isFleetSunk()).toBeFalsy();
   });
 
-  it("confirms if fleet is sunk", () => {
+  it("confirms that the fleet is sunk", () => {
     gameBoard.grid = [
       [0, 0, 0, 0],
       [0, 0, 0, 0],

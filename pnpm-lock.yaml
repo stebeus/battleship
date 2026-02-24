@@ -15,7 +15,7 @@ importers:
         specifier: 2.4.4
         version: 2.4.4
       vite:
-        specifier: 8.0.0-beta.15
+        specifier: ^8.0.0-beta.13
         version: 8.0.0-beta.15
       vitest:
         specifier: ^4.0.18

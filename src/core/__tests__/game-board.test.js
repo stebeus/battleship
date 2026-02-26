@@ -74,27 +74,19 @@ describe('GameBoard.place', () => {
     });
 
     describe('When the grid space is insufficient', () => {
-      it('prevents placing ship horizontally', () => {
-        // Arrange
+      beforeEach(() => {
         gameBoard.grid = createGrid(3, 3);
-        const emptyGrid = createGrid(3, 3);
+      });
 
-        // Act
+      const emptyGrid = createGrid(3, 3);
+
+      it('prevents placing ship horizontally', () => {
         gameBoard.place(5, 2, 2, 'x');
-
-        // Assert
         expect(gameBoard.grid).toStrictEqual(emptyGrid);
       });
 
       it('prevents placing ship vertically', () => {
-        // Arrange
-        gameBoard.grid = createGrid(3, 3);
-        const emptyGrid = createGrid(3, 3);
-
-        // Act
         gameBoard.place(5, 2, 2, 'y');
-
-        // Assert
         expect(gameBoard.grid).toStrictEqual(emptyGrid);
       });
     });

@@ -73,16 +73,18 @@ describe('GameBoard.place', () => {
       });
     });
 
-    it('prevents placing ship when space is insufficient', () => {
-      // Arrange
-      gameBoard.grid = createGrid(3, 3);
-      const emptyGrid = createGrid(3, 3);
+    describe('When the grid space is insufficient', () => {
+      it('prevents placing ship when space is insufficient', () => {
+        // Arrange
+        gameBoard.grid = createGrid(3, 3);
+        const emptyGrid = createGrid(3, 3);
 
-      // Act
-      gameBoard.place(5, 2, 2, 'x');
+        // Act
+        gameBoard.place(5, 2, 2, 'x');
 
-      // Assert
-      expect(gameBoard.grid).toStrictEqual(emptyGrid);
+        // Assert
+        expect(gameBoard.grid).toStrictEqual(emptyGrid);
+      });
     });
   });
 });

@@ -1,4 +1,4 @@
-import { Ship } from '../core/ship';
+import { Ship } from '../core/ship.js';
 
 function createDivision(quantity = 1, shipLength = 1) {
   const division = [];

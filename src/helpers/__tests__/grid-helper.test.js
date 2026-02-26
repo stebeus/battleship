@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest';
-import { createGrid } from '../grid-helper';
+import { createGrid } from '../grid-helper.js';
 
 const grid = createGrid(10, 9);
 

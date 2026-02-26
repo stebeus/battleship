@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { createGrid } from '../../helpers/grid-helper';
-import { GameBoard } from '../game-board';
-import { Ship } from '../ship';
+import { createGrid } from '../../helpers/grid-helper.js';
+import { GameBoard } from '../game-board.js';
+import { Ship } from '../ship.js';
 
 const gameBoard = new GameBoard();
 

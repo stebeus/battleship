@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { Ship } from '../ship';
+import { Ship } from '../ship.js';
 
 it('creates a ship of length 1 by default', () => {
   const ship = new Ship();

@@ -1,6 +1,6 @@
-import { createFleet } from "../helpers/fleet-helper";
-import { createGrid } from "../helpers/grid-helper";
-import { Ship } from "./ship";
+import { createFleet } from '../helpers/fleet-helper';
+import { createGrid } from '../helpers/grid-helper';
+import { Ship } from './ship';
 
 class GameBoard {
   #empty = 0;
@@ -21,15 +21,15 @@ class GameBoard {
     const ship = this.fleet[shipIndex];
 
     for (let cell = 0; cell < ship.length; cell++) {
-      if (axis === "x") this.grid[row][column++] = ship;
-      if (axis === "y") this.grid[row++][column] = ship;
+      if (axis === 'x') this.grid[row][column++] = ship;
+      if (axis === 'y') this.grid[row++][column] = ship;
     }
   }
 
   receiveAttack(row, column) {
     const cell = this.grid[row][column];
-    const miss = "m";
-    const hit = "h";
+    const miss = 'm';
+    const hit = 'h';
 
     if (this.#isCellEmpty(row, column)) this.grid[row][column] = miss;
 

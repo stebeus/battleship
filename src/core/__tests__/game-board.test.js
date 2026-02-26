@@ -53,19 +53,21 @@ describe('GameBoard.place', () => {
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
 
-    it('prevents placing a ship adjacent to another', () => {
-      // Arrange
-      gameBoard.grid = [
-        [0, 0, 0],
-        [0, ship, ship],
-        [0, 0, 0],
-      ];
+    describe('When placing ships adjacently', () => {
+      it('prevents placing a ship adjacent to another', () => {
+        // Arrange
+        gameBoard.grid = [
+          [0, 0, 0],
+          [0, ship, ship],
+          [0, 0, 0],
+        ];
 
-      // Act
-      gameBoard.place(5, 0, 0, 'y');
+        // Act
+        gameBoard.place(5, 0, 0, 'y');
 
-      // Assert
-      expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+        // Assert
+        expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+      });
     });
 
     it('prevents placing ship when space is insufficient', () => {

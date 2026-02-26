@@ -54,7 +54,7 @@ describe('GameBoard.place', () => {
     });
 
     describe('When placing ships adjacently', () => {
-      it('prevents placing a ship adjacent to another', () => {
+      it('prevents placing ship vertically', () => {
         // Arrange
         gameBoard.grid = [
           [0, 0, 0],

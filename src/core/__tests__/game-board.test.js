@@ -54,33 +54,21 @@ describe('GameBoard.place', () => {
     });
 
     describe('When placing ships adjacently', () => {
-      it('prevents placing ship horizontally', () => {
-        // Arrange
+      beforeEach(() => {
         gameBoard.grid = [
           [0, 0, 0],
           [0, ship, ship],
           [0, 0, 0],
         ];
+      });
 
-        // Act
+      it('prevents placing ship horizontally', () => {
         gameBoard.place(5, 0, 0, 'x');
-
-        // Assert
         expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
       });
 
       it('prevents placing ship vertically', () => {
-        // Arrange
-        gameBoard.grid = [
-          [0, 0, 0],
-          [0, ship, ship],
-          [0, 0, 0],
-        ];
-
-        // Act
         gameBoard.place(5, 0, 0, 'y');
-
-        // Assert
         expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
       });
     });

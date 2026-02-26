@@ -74,7 +74,7 @@ describe('GameBoard.place', () => {
     });
 
     describe('When the grid space is insufficient', () => {
-      it('prevents placing ship when space is insufficient', () => {
+      it('prevents placing ship horizontally', () => {
         // Arrange
         gameBoard.grid = createGrid(3, 3);
         const emptyGrid = createGrid(3, 3);

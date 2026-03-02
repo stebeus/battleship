@@ -3,12 +3,10 @@ import { createGrid } from '../helpers/grid-helper.js';
 import { Ship } from './ship.js';
 
 class GameBoard {
-  #empty = 0;
+  fleet = createFleet(4);
+  grid = createGrid(10, 10);
 
-  constructor() {
-    this.fleet = createFleet(4);
-    this.grid = createGrid(10, 10);
-  }
+  #empty = 0;
 
   #isCellEmpty(row, column) {
     const cell = this.grid[row][column];

@@ -8,11 +8,6 @@ class GameBoard {
 
   #empty = 0;
 
-  #isCellEmpty(row, column) {
-    const cell = this.grid[row][column];
-    return cell === this.#empty;
-  }
-
   place(shipIndex, row, column, axis) {
     if (!this.#isCellEmpty(row, column)) return;
 
@@ -41,6 +36,11 @@ class GameBoard {
     const isNotShip = (cell) => !(cell instanceof Ship);
     const checkRow = (row) => row.every(isNotShip);
     return this.grid.every(checkRow);
+  }
+
+  #isCellEmpty(row, column) {
+    const cell = this.grid[row][column];
+    return cell === this.#empty;
   }
 }
 

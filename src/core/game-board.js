@@ -42,6 +42,12 @@ class GameBoard {
     const cell = this.grid[row][column];
     return cell === this.#empty;
   }
+
+  #isOutOfBounds(row, column) {
+    const gridRow = this.grid[row];
+    const gridColumn = gridRow?.[column];
+    return gridRow == null || gridColumn == null;
+  }
 }
 
 export { GameBoard };

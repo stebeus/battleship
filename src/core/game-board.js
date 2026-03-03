@@ -50,9 +50,25 @@ class GameBoard {
     return gridRow == null || gridColumn == null;
   }
 
+  #isShip(row, column) {
+    const grid = this.grid;
+    if (
+      grid[row - 1]?.[column - 1] instanceof Ship ||
+      grid[row + 1]?.[column - 1] instanceof Ship ||
+      grid[row - 1]?.[column + 1] instanceof Ship ||
+      grid[row + 1]?.[column + 1] instanceof Ship
+    ) {
+      return true;
+    }
+  }
+
   #validatePlacement(ship, row, column, axis) {
     for (let cell = 0; cell < ship.length; cell++) {
-      if (this.#isOutOfBounds(row, column) || !this.#isCellEmpty(row, column)) {
+      if (
+        this.#isOutOfBounds(row, column) ||
+        !this.#isCellEmpty(row, column) ||
+        this.#isShip(row, column)
+      ) {
         return false;
       }
 

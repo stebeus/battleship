@@ -9,9 +9,10 @@ class GameBoard {
   #empty = 0;
 
   place(shipIndex, row, column, axis) {
-    if (!this.#isCellEmpty(row, column)) return;
-
     const ship = this.fleet[shipIndex];
+
+    const isPlacementValid = this.#validatePlacement(ship, row, column, axis);
+    if (!isPlacementValid) return;
 
     for (let cell = 0; cell < ship.length; cell++) {
       if (axis === 'x') this.grid[row][column++] = ship;
@@ -47,6 +48,19 @@ class GameBoard {
     const gridRow = this.grid[row];
     const gridColumn = gridRow?.[column];
     return gridRow == null || gridColumn == null;
+  }
+
+  #validatePlacement(ship, row, column, axis) {
+    for (let cell = 0; cell < ship.length; cell++) {
+      if (this.#isOutOfBounds(row, column) || !this.#isCellEmpty(row, column)) {
+        return false;
+      }
+
+      if (axis === 'x') this.grid[row][column++];
+      if (axis === 'y') this.grid[row++][column];
+    }
+
+    return true;
   }
 }
 

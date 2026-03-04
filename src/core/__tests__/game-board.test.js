@@ -99,8 +99,8 @@ describe('GameBoard.place', () => {
         test.each([
           ['top', 0, 1, 'x'],
           ['bottom', 2, 1, 'x'],
-          ['left', 1, 0, 'x'],
-          ['right', 1, 2, 'x'],
+          ['left', 1, 0, 'y'],
+          ['right', 1, 2, 'y'],
         ])('prevents placing ship on the %s side', (_, row, column, axis) => {
           gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);

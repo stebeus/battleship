@@ -111,6 +111,7 @@ describe('GameBoard.place', () => {
         test.each([
           ['top left', 0, 0, 'x'],
           ['top right', 0, 2, 'y'],
+          ['bottom left', 2, 0, 'x'],
         ])('prevents placing ship on the %s corner', (_, row, column, axis) => {
           gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);

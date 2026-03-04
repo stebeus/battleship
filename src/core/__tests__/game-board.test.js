@@ -6,25 +6,24 @@ import { Ship } from '../ship.js';
 const gameBoard = new GameBoard();
 
 describe('GameBoard.place', () => {
-  // Shared setup for the ship and expected grids
-  const ship = new Ship(2);
-
-  const horizontalPlacement = [
-    [0, 0, 0],
-    [0, ship, ship],
-    [0, 0, 0],
-  ];
-
-  const verticalPlacement = [
-    [0, 0, 0],
-    [0, ship, 0],
-    [0, ship, 0],
-  ];
-
   describe('Valid placements', () => {
     beforeEach(() => {
       gameBoard.grid = createGrid(3, 3);
     });
+
+    const ship = new Ship(2);
+
+    const horizontalPlacement = [
+      [0, 0, 0],
+      [0, ship, ship],
+      [0, 0, 0],
+    ];
+
+    const verticalPlacement = [
+      [0, 0, 0],
+      [0, ship, 0],
+      [0, ship, 0],
+    ];
 
     it('places ship horizontally', () => {
       gameBoard.place(5, 1, 1, 'x');
@@ -40,9 +39,17 @@ describe('GameBoard.place', () => {
   describe('Invalid placements', () => {
     it('prevents placing ship on occupied cells', () => {
       // Arrange
+      const ship = new Ship();
+
+      const occupiedPlacement = [
+        [0, 0, 0],
+        [0, ship, 0],
+        [0, 0, 0],
+      ];
+
       gameBoard.grid = [
         [0, 0, 0],
-        [0, ship, ship],
+        [0, ship, 0],
         [0, 0, 0],
       ];
 
@@ -50,26 +57,34 @@ describe('GameBoard.place', () => {
       gameBoard.place(5, 1, 1, 'y');
 
       // Assert
-      expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+      expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
     });
 
     describe('When placing ships adjacently', () => {
+      const ship = new Ship();
+
+      const occupiedPlacement = [
+        [0, 0, 0],
+        [0, ship, 0],
+        [0, 0, 0],
+      ];
+
       beforeEach(() => {
         gameBoard.grid = [
           [0, 0, 0],
-          [0, ship, ship],
+          [0, ship, 0],
           [0, 0, 0],
         ];
       });
 
       it('prevents placing ship horizontally', () => {
         gameBoard.place(5, 0, 0, 'x');
-        expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+        expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
       });
 
       it('prevents placing ship vertically', () => {
         gameBoard.place(5, 0, 0, 'y');
-        expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+        expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
       });
     });
 

@@ -96,8 +96,10 @@ describe('GameBoard.place', () => {
       });
 
       describe('When placing on the sides', () => {
-        test.each([])('', (row, column, axis) => {
-          gameBoard.place(4, row, column, axis);
+        test.each([
+          ['top', 0, 1, 'x'],
+        ])('prevents placing ship on the %s side', (_, row, column, axis) => {
+          gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
         });
       });

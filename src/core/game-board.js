@@ -41,15 +41,15 @@ class GameBoard {
     return this.grid.every(checkRow);
   }
 
-  #isCellEmpty(row, column) {
-    const cell = this.grid[row][column];
-    return cell === this.#emptyCell;
-  }
-
   #isCellOutOfBounds(row, column) {
     const gridRow = this.grid[row];
     const gridColumn = gridRow?.[column];
     return gridRow == null || gridColumn == null;
+  }
+
+  #isCellEmpty(row, column) {
+    const cell = this.grid[row][column];
+    return cell === this.#emptyCell;
   }
 
   #isCellAdjacentShip(row, column) {

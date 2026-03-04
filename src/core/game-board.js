@@ -15,8 +15,10 @@ class GameBoard {
     if (!isPlacementValid) return;
 
     for (let cell = 0; cell < ship.length; cell++) {
-      if (axis === 'x') this.grid[row][column++] = ship;
-      if (axis === 'y') this.grid[row++][column] = ship;
+      this.grid[row][column] = ship;
+
+      if (axis === 'x') column++;
+      if (axis === 'y') row++;
     }
   }
 
@@ -72,8 +74,8 @@ class GameBoard {
         return false;
       }
 
-      if (axis === 'x') this.grid[row][column++];
-      if (axis === 'y') this.grid[row++][column];
+      if (axis === 'x') column++;
+      if (axis === 'y') row++;
     }
 
     return true;

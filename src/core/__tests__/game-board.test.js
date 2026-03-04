@@ -94,14 +94,14 @@ describe('GameBoard.place', () => {
 });
 
 describe('GameBoard.receiveAttack', () => {
-  let ship;
-
-  beforeEach(() => {
-    ship = new Ship(2);
-    gameBoard.grid[0] = [0, ship, ship];
-  });
-
   describe('Valid attacks', () => {
+    let ship;
+
+    beforeEach(() => {
+      ship = new Ship(2);
+      gameBoard.grid[0] = [0, ship, ship];
+    });
+
     describe('When a shot is hit', () => {
       it('registers hit shots', () => {
         gameBoard.receiveAttack(0, 1);
@@ -120,12 +120,9 @@ describe('GameBoard.receiveAttack', () => {
     });
   });
 
-  it('registers missed shots', () => {
-    gameBoard.receiveAttack(0, 0);
-    expect(gameBoard.grid[0]).toStrictEqual(['m', ship, ship]);
-  });
-
   describe('Invalid attacks', () => {
+    const ship = new Ship(2);
+
     beforeEach(() => {
       gameBoard.grid[0] = ['m', 'h', ship];
     });

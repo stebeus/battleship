@@ -95,6 +95,8 @@ describe('GameBoard.place', () => {
         ];
       });
 
+      describe('When placing on the corners', () => {});
+
       describe('When placing on the sides', () => {
         test.each([
           ['top', 0, 1, 'x'],

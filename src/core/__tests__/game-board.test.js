@@ -95,15 +95,6 @@ describe('GameBoard.place', () => {
         ];
       });
 
-      describe('When placing on the corners', () => {
-        test.each([
-          ['top left', 0, 0, 'x'],
-        ])('prevents placing ship on the %s corner', (_, row, column, axis) => {
-          gameBoard.place(0, row, column, axis);
-          expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
-        });
-      });
-
       describe('When placing on the sides', () => {
         test.each([
           ['top', 0, 1, 'x'],
@@ -111,6 +102,15 @@ describe('GameBoard.place', () => {
           ['left', 1, 0, 'x'],
           ['right', 1, 2, 'x'],
         ])('prevents placing ship on the %s side', (_, row, column, axis) => {
+          gameBoard.place(0, row, column, axis);
+          expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
+        });
+      });
+
+      describe('When placing on the corners', () => {
+        test.each([
+          ['top left', 0, 0, 'x'],
+        ])('prevents placing ship on the %s corner', (_, row, column, axis) => {
           gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
         });

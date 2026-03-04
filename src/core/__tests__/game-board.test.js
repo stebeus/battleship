@@ -37,6 +37,24 @@ describe('GameBoard.place', () => {
   });
 
   describe('Invalid placements', () => {
+    describe('When the grid space is insufficient', () => {
+      beforeEach(() => {
+        gameBoard.grid = createGrid(3, 3);
+      });
+
+      const emptyGrid = createGrid(3, 3);
+
+      it('prevents placing ship horizontally', () => {
+        gameBoard.place(5, 2, 2, 'x');
+        expect(gameBoard.grid).toStrictEqual(emptyGrid);
+      });
+
+      it('prevents placing ship vertically', () => {
+        gameBoard.place(5, 2, 2, 'y');
+        expect(gameBoard.grid).toStrictEqual(emptyGrid);
+      });
+    });
+
     it('prevents placing ship on occupied cells', () => {
       // Arrange
       const ship = new Ship();
@@ -85,24 +103,6 @@ describe('GameBoard.place', () => {
       it('prevents placing ship vertically', () => {
         gameBoard.place(5, 0, 0, 'y');
         expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
-      });
-    });
-
-    describe('When the grid space is insufficient', () => {
-      beforeEach(() => {
-        gameBoard.grid = createGrid(3, 3);
-      });
-
-      const emptyGrid = createGrid(3, 3);
-
-      it('prevents placing ship horizontally', () => {
-        gameBoard.place(5, 2, 2, 'x');
-        expect(gameBoard.grid).toStrictEqual(emptyGrid);
-      });
-
-      it('prevents placing ship vertically', () => {
-        gameBoard.place(5, 2, 2, 'y');
-        expect(gameBoard.grid).toStrictEqual(emptyGrid);
       });
     });
   });

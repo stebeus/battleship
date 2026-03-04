@@ -82,16 +82,18 @@ describe('GameBoard.place', () => {
       const ship = new Ship();
 
       const occupiedPlacement = [
-        [0, 0, 0],
-        [0, ship, 0],
-        [0, 0, 0],
+        [0, 0, 0, 0],
+        [0, ship, 0, 0],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
       ];
 
       beforeEach(() => {
         gameBoard.grid = [
-          [0, 0, 0],
-          [0, ship, 0],
-          [0, 0, 0],
+          [0, 0, 0, 0],
+          [0, ship, 0, 0],
+          [0, 0, 0, 0],
+          [0, 0, 0, 0],
         ];
       });
 

@@ -118,16 +118,20 @@ describe('GameBoard.receiveAttack', () => {
     expect(gameBoard.grid[0]).toStrictEqual(['m', ship, ship]);
   });
 
-  it('does not alter registered shots', () => {
-    // Arrange
-    gameBoard.grid[0] = ['m', 'h', ship];
+  describe('Invalid attacks', () => {
+    beforeEach(() => {
+      gameBoard.grid[0] = ['m', 'h', ship];
+    });
 
-    // Act
-    gameBoard.receiveAttack(0, 0);
-    gameBoard.receiveAttack(0, 1);
+    it('does not alter registered missed shots', () => {
+      gameBoard.receiveAttack(0, 0);
+      expect(gameBoard.grid[0]).toStrictEqual(['m', 'h', ship]);
+    });
 
-    // Assert
-    expect(gameBoard.grid[0]).toStrictEqual(['m', 'h', ship]);
+    it('does not alter registered hit shots', () => {
+      gameBoard.receiveAttack(0, 1);
+      expect(gameBoard.grid[0]).toStrictEqual(['m', 'h', ship]);
+    });
   });
 });
 

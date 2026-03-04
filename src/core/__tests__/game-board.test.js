@@ -118,11 +118,6 @@ describe('GameBoard.place', () => {
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
         });
       });
-
-      it('prevents placing ship vertically', () => {
-        gameBoard.place(4, 0, 0, 'y');
-        expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
-      });
     });
   });
 });

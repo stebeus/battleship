@@ -53,14 +53,16 @@ class GameBoard {
   }
 
   #isCellAdjacentShip(row, column) {
-    const grid = this.grid;
-    if (
-      grid[row - 1]?.[column - 1] instanceof Ship ||
-      grid[row + 1]?.[column - 1] instanceof Ship ||
-      grid[row - 1]?.[column + 1] instanceof Ship ||
-      grid[row + 1]?.[column + 1] instanceof Ship
-    ) {
-      return true;
+    const topLeft = [row - 1, column - 1];
+    const topRight = [row - 1, column + 1];
+    const bottomLeft = [row + 1, column - 1];
+    const bottomRight = [row + 1, column + 1];
+
+    const sides = [topLeft, topRight, bottomLeft, bottomRight];
+
+    for (const [row, column] of sides) {
+      const cell = this.grid[row]?.[column];
+      if (cell instanceof Ship) return true;
     }
   }
 

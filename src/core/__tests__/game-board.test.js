@@ -101,15 +101,22 @@ describe('GameBoard.receiveAttack', () => {
     gameBoard.grid[0] = [0, ship, ship];
   });
 
-  describe('Hit shots', () => {
-    it('registers hit shots', () => {
-      gameBoard.receiveAttack(0, 1);
-      expect(gameBoard.grid[0]).toStrictEqual([0, 'h', ship]);
+  describe('Valid attacks', () => {
+    describe('When a shot is hit', () => {
+      it('registers hit shots', () => {
+        gameBoard.receiveAttack(0, 1);
+        expect(gameBoard.grid[0]).toStrictEqual([0, 'h', ship]);
+      });
+
+      it('reduces the targeted ship health', () => {
+        gameBoard.receiveAttack(0, 1);
+        expect(ship.health).toBe(1);
+      });
     });
 
-    it('reduces the targeted ship health', () => {
-      gameBoard.receiveAttack(0, 1);
-      expect(ship.health).toBe(1);
+    it('registers missed shots', () => {
+      gameBoard.receiveAttack(0, 0);
+      expect(gameBoard.grid[0]).toStrictEqual(['m', ship, ship]);
     });
   });
 

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, test } from 'vitest';
 import { createGrid } from '../../helpers/grid-helper.js';
 import { GameBoard } from '../game-board.js';
 import { Ship } from '../ship.js';
@@ -94,6 +94,8 @@ describe('GameBoard.place', () => {
           [0, 0, 0],
         ];
       });
+
+      describe('When placing on the sides', () => {});
 
       it('prevents placing ship horizontally', () => {
         gameBoard.place(5, 0, 0, 'x');

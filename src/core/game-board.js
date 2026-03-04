@@ -6,7 +6,7 @@ class GameBoard {
   fleet = createFleet(4);
   grid = createGrid(10, 10);
 
-  #empty = 0;
+  #emptyCell = 0;
 
   place(shipIndex, row, column, axis) {
     const ship = this.fleet[shipIndex];
@@ -41,7 +41,7 @@ class GameBoard {
 
   #isCellEmpty(row, column) {
     const cell = this.grid[row][column];
-    return cell === this.#empty;
+    return cell === this.#emptyCell;
   }
 
   #isCellOutOfBounds(row, column) {

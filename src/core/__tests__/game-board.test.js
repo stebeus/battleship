@@ -26,12 +26,12 @@ describe('GameBoard.place', () => {
     ];
 
     it('places ship horizontally', () => {
-      gameBoard.place(5, 1, 1, 'x');
+      gameBoard.place(4, 1, 1, 'x');
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
 
     it('places ship vertically', () => {
-      gameBoard.place(5, 1, 1, 'y');
+      gameBoard.place(4, 1, 1, 'y');
       expect(gameBoard.grid).toStrictEqual(verticalPlacement);
     });
   });
@@ -45,12 +45,12 @@ describe('GameBoard.place', () => {
       const emptyGrid = createGrid(3, 3);
 
       it('prevents placing ship horizontally', () => {
-        gameBoard.place(5, 2, 2, 'x');
+        gameBoard.place(4, 2, 2, 'x');
         expect(gameBoard.grid).toStrictEqual(emptyGrid);
       });
 
       it('prevents placing ship vertically', () => {
-        gameBoard.place(5, 2, 2, 'y');
+        gameBoard.place(4, 2, 2, 'y');
         expect(gameBoard.grid).toStrictEqual(emptyGrid);
       });
     });
@@ -98,12 +98,12 @@ describe('GameBoard.place', () => {
       describe('When placing on the sides', () => {});
 
       it('prevents placing ship horizontally', () => {
-        gameBoard.place(5, 0, 0, 'x');
+        gameBoard.place(4, 0, 0, 'x');
         expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
       });
 
       it('prevents placing ship vertically', () => {
-        gameBoard.place(5, 0, 0, 'y');
+        gameBoard.place(4, 0, 0, 'y');
         expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
       });
     });

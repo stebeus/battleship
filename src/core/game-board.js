@@ -50,7 +50,7 @@ class GameBoard {
     return gridRow == null || gridColumn == null;
   }
 
-  #isShip(row, column) {
+  #isCellAdjacentShip(row, column) {
     const grid = this.grid;
     if (
       grid[row - 1]?.[column - 1] instanceof Ship ||
@@ -67,7 +67,7 @@ class GameBoard {
       if (
         this.#isCellOutOfBounds(row, column) ||
         !this.#isCellEmpty(row, column) ||
-        this.#isShip(row, column)
+        this.#isCellAdjacentShip(row, column)
       ) {
         return false;
       }

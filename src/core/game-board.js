@@ -44,7 +44,7 @@ class GameBoard {
     return cell === this.#empty;
   }
 
-  #isOutOfBounds(row, column) {
+  #isCellOutOfBounds(row, column) {
     const gridRow = this.grid[row];
     const gridColumn = gridRow?.[column];
     return gridRow == null || gridColumn == null;
@@ -65,7 +65,7 @@ class GameBoard {
   #validatePlacement(ship, row, column, axis) {
     for (let cell = 0; cell < ship.length; cell++) {
       if (
-        this.#isOutOfBounds(row, column) ||
+        this.#isCellOutOfBounds(row, column) ||
         !this.#isCellEmpty(row, column) ||
         this.#isShip(row, column)
       ) {

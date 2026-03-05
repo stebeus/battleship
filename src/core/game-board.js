@@ -53,25 +53,26 @@ class GameBoard {
   }
 
   #isCellAdjacentShip(row, column) {
-    const topLeft = [row - 1, column - 1];
-    const topRight = [row - 1, column + 1];
-    const bottomLeft = [row + 1, column - 1];
-    const bottomRight = [row + 1, column + 1];
-
-    const sides = [topLeft, topRight, bottomLeft, bottomRight];
-
-    for (const [row, column] of sides) {
-      const cell = this.grid[row]?.[column];
-      if (cell instanceof Ship) return true;
-    }
+    const cell = this.grid[row]?.[column];
+    if (cell instanceof Ship) return true;
   }
 
   #validatePlacement(ship, row, column, axis) {
     for (let cell = 0; cell < ship.length; cell++) {
+      const topLeft = [row - 1, column - 1];
+      const topRight = [row - 1, column + 1];
+      const bottomLeft = [row + 1, column - 1];
+      const bottomRight = [row + 1, column + 1];
+
+      const sides = [topLeft, topRight, bottomLeft, bottomRight];
+
+      for (const [row, column] of sides) {
+        if (this.#isCellAdjacentShip(row, column)) return false;
+      }
+
       if (
         this.#isCellOutOfBounds(row, column) ||
-        !this.#isCellEmpty(row, column) ||
-        this.#isCellAdjacentShip(row, column)
+        !this.#isCellEmpty(row, column)
       ) {
         return false;
       }

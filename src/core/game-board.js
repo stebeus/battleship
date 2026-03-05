@@ -57,15 +57,19 @@ class GameBoard {
     return cell instanceof Ship;
   }
 
+  #hasAdjacentShip(coordinates) {
+    for (const [row, column] of coordinates) {
+      if (this.#isCellShip(row, column)) return true;
+    }
+  }
+
   #validatePlacement(ship, row, column, axis) {
     // Pre
     const previousHor = [row, column - 1];
     const previousVer = [row - 1, column];
     const sides = [previousHor, previousVer];
 
-    for (const [row, column] of sides) {
-      if (this.#isCellShip(row, column)) return false;
-    }
+    if (this.#hasAdjacentShip(sides)) return false;
 
     for (let cell = 0; cell < ship.length; cell++) {
       const topLeft = [row - 1, column - 1];
@@ -84,13 +88,10 @@ class GameBoard {
         vertical,
       ];
 
-      for (const [row, column] of sides) {
-        if (this.#isCellShip(row, column)) return false;
-      }
-
       if (
         this.#isCellOutOfBounds(row, column) ||
-        !this.#isCellEmpty(row, column)
+        !this.#isCellEmpty(row, column) ||
+        this.#hasAdjacentShip(sides)
       ) {
         return false;
       }

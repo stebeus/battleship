@@ -63,38 +63,41 @@ class GameBoard {
     }
   }
 
-  #validatePlacement(ship, row, column, axis) {
+  #isInvalid(row, column) {
+    // Sides
+    const topLeft = [row - 1, column - 1];
+    const topRight = [row - 1, column + 1];
+    const bottomLeft = [row + 1, column - 1];
+    const bottomRight = [row + 1, column + 1];
+    const horizontal = [row, column + 1];
+    const vertical = [row + 1, column];
+
+    const sides = [
+      topLeft,
+      topRight,
+      bottomLeft,
+      bottomRight,
+      horizontal,
+      vertical,
+    ];
+
+    return (
+      this.#isCellOutOfBounds(row, column) ||
+      !this.#isCellEmpty(row, column) ||
+      this.#hasAdjacentShip(sides)
+    );
+  }
+
+  #validatePlacement({ length }, row, column, axis) {
     // Pre
     const previousHor = [row, column - 1];
     const previousVer = [row - 1, column];
     const sides = [previousHor, previousVer];
 
-    if (this.#hasAdjacentShip(sides)) return false;
+    if (this.#hasAdjacentShip(sides)) return;
 
-    for (let cell = 0; cell < ship.length; cell++) {
-      const topLeft = [row - 1, column - 1];
-      const topRight = [row - 1, column + 1];
-      const bottomLeft = [row + 1, column - 1];
-      const bottomRight = [row + 1, column + 1];
-      const horizontal = [row, column + 1];
-      const vertical = [row + 1, column];
-
-      const sides = [
-        topLeft,
-        topRight,
-        bottomLeft,
-        bottomRight,
-        horizontal,
-        vertical,
-      ];
-
-      if (
-        this.#isCellOutOfBounds(row, column) ||
-        !this.#isCellEmpty(row, column) ||
-        this.#hasAdjacentShip(sides)
-      ) {
-        return false;
-      }
+    for (let cell = 0; cell < length; cell++) {
+      if (this.#isInvalid(row, column)) return;
 
       if (axis === 'x') column++;
       if (axis === 'y') row++;

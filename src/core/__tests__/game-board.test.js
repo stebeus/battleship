@@ -108,13 +108,13 @@ describe('GameBoard.place', () => {
           });
 
           it.each`
-            side        | row  | column | axis
-            ${'top'}    | ${0} | ${1}   | ${'x'}
-            ${'bottom'} | ${2} | ${1}   | ${'x'}
-            ${'left'}   | ${1} | ${0}   | ${'y'}
-            ${'right'}  | ${1} | ${3}   | ${'y'}
-          `('prevents placing ship on the $side', ({ row, column, axis }) => {
-            gameBoard.place(0, row, column, axis);
+            side        | row  | column
+            ${'top'}    | ${0} | ${1}
+            ${'bottom'} | ${2} | ${1}
+            ${'left'}   | ${1} | ${0}
+            ${'right'}  | ${1} | ${3}
+          `('prevents placing ship on the $side', ({ row, column }) => {
+            gameBoard.place(0, row, column, 'x');
             expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
           });
         });
@@ -139,13 +139,13 @@ describe('GameBoard.place', () => {
           });
 
           it.each`
-            side        | row  | column | axis
-            ${'top'}    | ${0} | ${1}   | ${'x'}
-            ${'bottom'} | ${3} | ${1}   | ${'x'}
-            ${'left'}   | ${1} | ${0}   | ${'y'}
-            ${'right'}  | ${1} | ${2}   | ${'y'}
-          `('prevents placing ship on the $side', ({ row, column, axis }) => {
-            gameBoard.place(0, row, column, axis);
+            side        | row  | column
+            ${'top'}    | ${0} | ${1}
+            ${'bottom'} | ${3} | ${1}
+            ${'left'}   | ${1} | ${0}
+            ${'right'}  | ${1} | ${2}
+          `('prevents placing ship on the $side', ({ row, column }) => {
+            gameBoard.place(0, row, column, 'x');
             expect(gameBoard.grid).toStrictEqual(verticalPlacement);
           });
         });
@@ -169,13 +169,13 @@ describe('GameBoard.place', () => {
         });
 
         it.each`
-          corner            | row  | column | axis
-          ${'top left'}     | ${0} | ${0}   | ${'x'}
-          ${'top right'}    | ${0} | ${2}   | ${'y'}
-          ${'bottom left'}  | ${2} | ${0}   | ${'x'}
-          ${'bottom right'} | ${2} | ${2}   | ${'y'}
-        `('prevents placing ship on the $corner', ({ row, column, axis }) => {
-          gameBoard.place(0, row, column, axis);
+          corner            | row  | column
+          ${'top left'}     | ${0} | ${0}
+          ${'top right'}    | ${0} | ${2}
+          ${'bottom left'}  | ${2} | ${0}
+          ${'bottom right'} | ${2} | ${2}
+        `('prevents placing ship on the $corner', ({ row, column }) => {
+          gameBoard.place(0, row, column, 'x');
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
         });
       });

@@ -87,33 +87,33 @@ describe('GameBoard.place', () => {
     });
 
     describe('When placing ships adjacently', () => {
-      const ship = new Ship(2);
+      describe('And when it is on sides', () => {
+        const ship = new Ship(2);
 
-      const horizontalPlacement = [
-        [0, 0, 0, 0],
-        [0, ship, ship, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0],
-      ];
-
-      const verticalPlacement = [
-        [0, 0, 0, 0],
-        [0, ship, 0, 0],
-        [0, ship, 0, 0],
-        [0, 0, 0, 0],
-      ];
-
-      beforeEach(() => {
-        gameBoard.grid = [
+        const verticalPlacement = [
           [0, 0, 0, 0],
-          [0, ship, ship, 0],
-          [0, 0, 0, 0],
+          [0, ship, 0, 0],
+          [0, ship, 0, 0],
           [0, 0, 0, 0],
         ];
-      });
 
-      describe('And when it is on sides', () => {
         describe('And when the existing ship is horizontal', () => {
+          const horizontalPlacement = [
+            [0, 0, 0, 0],
+            [0, ship, ship, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+          ];
+
+          beforeEach(() => {
+            gameBoard.grid = [
+              [0, 0, 0, 0],
+              [0, ship, ship, 0],
+              [0, 0, 0, 0],
+              [0, 0, 0, 0],
+            ];
+          });
+
           it.each`
             side        | row  | column | axis
             ${'top'}    | ${0} | ${1}   | ${'x'}
@@ -128,15 +128,31 @@ describe('GameBoard.place', () => {
       });
 
       describe('And when it is on corners', () => {
+        const ship = new Ship();
+
+        const occupiedPlacement = [
+          [0, 0, 0],
+          [0, ship, 0],
+          [0, 0, 0],
+        ];
+
+        beforeEach(() => {
+          gameBoard.grid = [
+            [0, 0, 0],
+            [0, ship, 0],
+            [0, 0, 0],
+          ];
+        });
+
         it.each`
           corner            | row  | column | axis
           ${'top left'}     | ${0} | ${0}   | ${'x'}
-          ${'top right'}    | ${0} | ${3}   | ${'y'}
+          ${'top right'}    | ${0} | ${2}   | ${'y'}
           ${'bottom left'}  | ${2} | ${0}   | ${'x'}
-          ${'bottom right'} | ${2} | ${3}   | ${'y'}
+          ${'bottom right'} | ${2} | ${2}   | ${'y'}
         `('prevents placing ship on the $corner', ({ row, column, axis }) => {
           gameBoard.place(0, row, column, axis);
-          expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+          expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
         });
       });
     });

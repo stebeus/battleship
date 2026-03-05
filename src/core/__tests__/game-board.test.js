@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, test } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { createGrid } from '../../helpers/grid-helper.js';
 import { GameBoard } from '../game-board.js';
 import { Ship } from '../ship.js';
@@ -106,24 +106,26 @@ describe('GameBoard.place', () => {
       });
 
       describe('And when it is on sides', () => {
-        test.each([
-          ['top', 0, 1, 'x'],
-          ['bottom', 2, 1, 'x'],
-          ['left', 1, 0, 'y'],
-          ['right', 1, 3, 'y'],
-        ])('prevents placing ship on the %s side', (_, row, column, axis) => {
+        it.each`
+          side        | row  | column | axis
+          ${'top'}    | ${0} | ${1}   | ${'x'}
+          ${'bottom'} | ${2} | ${1}   | ${'x'}
+          ${'left'}   | ${1} | ${0}   | ${'y'}
+          ${'right'}  | ${1} | ${3}   | ${'y'}
+        `('prevents placing ship on the $side', ({ row, column, axis }) => {
           gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
         });
       });
 
       describe('And when it is on corners', () => {
-        test.each([
-          ['top left', 0, 0, 'x'],
-          ['top right', 0, 2, 'y'],
-          ['bottom left', 2, 0, 'x'],
-          ['bottom right', 2, 3, 'y'],
-        ])('prevents placing ship on the %s corner', (_, row, column, axis) => {
+        it.each`
+          corner            | row  | column | axis
+          ${'top left'}     | ${0} | ${0}   | ${'x'}
+          ${'top right'}    | ${0} | ${3}   | ${'y'}
+          ${'bottom left'}  | ${2} | ${0}   | ${'x'}
+          ${'bottom right'} | ${2} | ${3}   | ${'y'}
+        `('prevents placing ship on the $corner', ({ row, column, axis }) => {
           gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
         });

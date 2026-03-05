@@ -63,8 +63,17 @@ class GameBoard {
       const topRight = [row - 1, column + 1];
       const bottomLeft = [row + 1, column - 1];
       const bottomRight = [row + 1, column + 1];
+      const horizontal = [row, column + 1];
+      const vertical = [row + 1, column];
 
-      const sides = [topLeft, topRight, bottomLeft, bottomRight];
+      const sides = [
+        topLeft,
+        topRight,
+        bottomLeft,
+        bottomRight,
+        horizontal,
+        vertical,
+      ];
 
       for (const [row, column] of sides) {
         if (this.#isCellAdjacentShip(row, column)) return false;

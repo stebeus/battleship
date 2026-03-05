@@ -106,15 +106,17 @@ describe('GameBoard.place', () => {
       });
 
       describe('And when it is on sides', () => {
-        it.each`
-          side        | row  | column | axis
-          ${'top'}    | ${0} | ${1}   | ${'x'}
-          ${'bottom'} | ${2} | ${1}   | ${'x'}
-          ${'left'}   | ${1} | ${0}   | ${'y'}
-          ${'right'}  | ${1} | ${3}   | ${'y'}
-        `('prevents placing ship on the $side', ({ row, column, axis }) => {
-          gameBoard.place(0, row, column, axis);
-          expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
+        describe('And when the existing ship is horizontal', () => {
+          it.each`
+            side        | row  | column | axis
+            ${'top'}    | ${0} | ${1}   | ${'x'}
+            ${'bottom'} | ${2} | ${1}   | ${'x'}
+            ${'left'}   | ${1} | ${0}   | ${'y'}
+            ${'right'}  | ${1} | ${3}   | ${'y'}
+          `('prevents placing ship on the $side', ({ row, column, axis }) => {
+            gameBoard.place(0, row, column, axis);
+            expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
+          });
         });
       });
 

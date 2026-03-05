@@ -54,7 +54,7 @@ class GameBoard {
 
   #isCellAdjacentShip(row, column) {
     const cell = this.grid[row]?.[column];
-    if (cell instanceof Ship) return true;
+    return cell instanceof Ship;
   }
 
   #validatePlacement(ship, row, column, axis) {

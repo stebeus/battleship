@@ -58,6 +58,15 @@ class GameBoard {
   }
 
   #validatePlacement(ship, row, column, axis) {
+    // Pre
+    const previousHor = [row, column - 1];
+    const previousVer = [row - 1, column];
+    const sides = [previousHor, previousVer];
+
+    for (const [row, column] of sides) {
+      if (this.#isCellAdjacentShip(row, column)) return false;
+    }
+
     for (let cell = 0; cell < ship.length; cell++) {
       const topLeft = [row - 1, column - 1];
       const topRight = [row - 1, column + 1];

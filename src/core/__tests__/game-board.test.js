@@ -89,10 +89,17 @@ describe('GameBoard.place', () => {
     describe('When placing ships adjacently', () => {
       const ship = new Ship(2);
 
-      const occupiedPlacement = [
+      const horizontalPlacement = [
         [0, 0, 0, 0],
         [0, ship, ship, 0],
         [0, 0, 0, 0],
+        [0, 0, 0, 0],
+      ];
+
+      const verticalPlacement = [
+        [0, 0, 0, 0],
+        [0, ship, 0, 0],
+        [0, ship, 0, 0],
         [0, 0, 0, 0],
       ];
 
@@ -115,7 +122,7 @@ describe('GameBoard.place', () => {
             ${'right'}  | ${1} | ${3}   | ${'y'}
           `('prevents placing ship on the $side', ({ row, column, axis }) => {
             gameBoard.place(0, row, column, axis);
-            expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
+            expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
           });
         });
       });
@@ -129,7 +136,7 @@ describe('GameBoard.place', () => {
           ${'bottom right'} | ${2} | ${3}   | ${'y'}
         `('prevents placing ship on the $corner', ({ row, column, axis }) => {
           gameBoard.place(0, row, column, axis);
-          expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
+          expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
         });
       });
     });

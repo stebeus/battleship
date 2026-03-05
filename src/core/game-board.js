@@ -52,7 +52,7 @@ class GameBoard {
     return cell === this.#emptyCell;
   }
 
-  #isCellAdjacentShip(row, column) {
+  #isCellShip(row, column) {
     const cell = this.grid[row]?.[column];
     return cell instanceof Ship;
   }
@@ -64,7 +64,7 @@ class GameBoard {
     const sides = [previousHor, previousVer];
 
     for (const [row, column] of sides) {
-      if (this.#isCellAdjacentShip(row, column)) return false;
+      if (this.#isCellShip(row, column)) return false;
     }
 
     for (let cell = 0; cell < ship.length; cell++) {
@@ -85,7 +85,7 @@ class GameBoard {
       ];
 
       for (const [row, column] of sides) {
-        if (this.#isCellAdjacentShip(row, column)) return false;
+        if (this.#isCellShip(row, column)) return false;
       }
 
       if (

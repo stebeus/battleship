@@ -13,25 +13,33 @@ describe('GameBoard.place', () => {
 
     const ship = new Ship(2);
 
-    const horizontalPlacement = [
-      [0, 0, 0],
-      [0, ship, ship],
-      [0, 0, 0],
-    ];
-
-    const verticalPlacement = [
-      [0, 0, 0],
-      [0, ship, 0],
-      [0, ship, 0],
-    ];
-
     it('places ship horizontally', () => {
+      // Arrange
+      const horizontalPlacement = [
+        [0, 0, 0],
+        [0, ship, ship],
+        [0, 0, 0],
+      ];
+
+      // Act
       gameBoard.place(4, 1, 1, 'x');
+
+      // Assert
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
 
     it('places ship vertically', () => {
+      // Arrange
+      const verticalPlacement = [
+        [0, 0, 0],
+        [0, ship, 0],
+        [0, ship, 0],
+      ];
+
+      // Act
       gameBoard.place(4, 1, 1, 'y');
+
+      // Assert
       expect(gameBoard.grid).toStrictEqual(verticalPlacement);
     });
   });

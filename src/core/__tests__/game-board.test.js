@@ -87,11 +87,11 @@ describe('GameBoard.place', () => {
     });
 
     describe('When placing ships adjacently', () => {
-      const ship = new Ship();
+      const ship = new Ship(2);
 
       const occupiedPlacement = [
         [0, 0, 0, 0],
-        [0, ship, 0, 0],
+        [0, ship, ship, 0],
         [0, 0, 0, 0],
         [0, 0, 0, 0],
       ];
@@ -99,7 +99,7 @@ describe('GameBoard.place', () => {
       beforeEach(() => {
         gameBoard.grid = [
           [0, 0, 0, 0],
-          [0, ship, 0, 0],
+          [0, ship, ship, 0],
           [0, 0, 0, 0],
           [0, 0, 0, 0],
         ];
@@ -110,7 +110,7 @@ describe('GameBoard.place', () => {
           ['top', 0, 1, 'x'],
           ['bottom', 2, 1, 'x'],
           ['left', 1, 0, 'y'],
-          ['right', 1, 2, 'y'],
+          ['right', 1, 3, 'y'],
         ])('prevents placing ship on the %s edge', (_, row, column, axis) => {
           gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
@@ -122,7 +122,7 @@ describe('GameBoard.place', () => {
           ['top left', 0, 0, 'x'],
           ['top right', 0, 2, 'y'],
           ['bottom left', 2, 0, 'x'],
-          ['bottom right', 2, 2, 'y'],
+          ['bottom right', 2, 3, 'y'],
         ])('prevents placing ship on the %s corner', (_, row, column, axis) => {
           gameBoard.place(0, row, column, axis);
           expect(gameBoard.grid).toStrictEqual(occupiedPlacement);

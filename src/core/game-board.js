@@ -29,7 +29,7 @@ class GameBoard {
 
     if (this.#isCellEmpty(row, column)) this.grid[row][column] = miss;
 
-    if (cell instanceof Ship) {
+    if (this.#isCellShip(row, column)) {
       this.grid[row][column] = hit;
       cell.hit();
     }

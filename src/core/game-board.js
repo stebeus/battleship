@@ -23,13 +23,14 @@ class GameBoard {
   }
 
   receiveAttack(row, column) {
-    const cell = this.grid[row][column];
     const miss = 'm';
     const hit = 'h';
 
     if (this.#isCellEmpty(row, column)) this.grid[row][column] = miss;
 
     if (this.#isCellShip(row, column)) {
+      const cell = this.grid[row][column];
+
       this.grid[row][column] = hit;
       cell.hit();
     }

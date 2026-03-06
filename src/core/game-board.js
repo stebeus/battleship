@@ -1,4 +1,3 @@
-import { recordArtifact } from 'vitest';
 import { createFleet } from '../helpers/fleet-helper.js';
 import { createGrid } from '../helpers/grid-helper.js';
 import { Ship } from './ship.js';
@@ -98,7 +97,8 @@ class GameBoard {
   }
 
   #validatePlacement({ length }, row, column, axis) {
-    if (this.#hasAdjacentShip(row, column, 0, 2)) return;
+    const isPrecededByShip = this.#hasAdjacentShip(row, column, 0, 2);
+    if (isPrecededByShip) return;
 
     for (let cell = 0; cell < length; cell++) {
       const validators = [

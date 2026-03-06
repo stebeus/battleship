@@ -1,3 +1,4 @@
+import { recordArtifact } from 'vitest';
 import { createFleet } from '../helpers/fleet-helper.js';
 import { createGrid } from '../helpers/grid-helper.js';
 import { Ship } from './ship.js';
@@ -96,19 +97,17 @@ class GameBoard {
     }
   }
 
-  #isInvalid(row, column) {
-    return (
-      this.#isCellOutOfBounds(row, column) ||
-      !this.#isCellEmpty(row, column) ||
-      this.#hasAdjacentShip(row, column, 2)
-    );
-  }
-
   #validatePlacement({ length }, row, column, axis) {
     if (this.#hasAdjacentShip(row, column, 0, 2)) return;
 
     for (let cell = 0; cell < length; cell++) {
-      if (this.#isInvalid(row, column)) return;
+      const validators = [
+        this.#isCellOutOfBounds(row, column),
+        !this.#isCellEmpty(row, column),
+        this.#hasAdjacentShip(row, column, 2),
+      ];
+
+      for (const validator of validators) if (validator) return;
 
       if (axis === 'x') column++;
       if (axis === 'y') row++;

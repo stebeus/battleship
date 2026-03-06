@@ -66,6 +66,15 @@ class GameBoard {
     return [top, left, bottom, right];
   }
 
+  #getAdjacentCorners(row, column) {
+    const topLeft = [row - 1, column - 1];
+    const topRight = [row - 1, column + 1];
+    const bottomLeft = [row + 1, column - 1];
+    const bottomRight = [row + 1, column + 1];
+
+    return [topLeft, topRight, bottomLeft, bottomRight];
+  }
+
   #hasAdjacentShip(coordinates) {
     for (const [row, column] of coordinates) {
       if (this.#isCellShip(row, column)) return true;

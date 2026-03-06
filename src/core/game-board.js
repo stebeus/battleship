@@ -36,8 +36,8 @@ class GameBoard {
   }
 
   isFleetSunk() {
-    const isNotShip = (cell) => !(cell instanceof Ship);
-    const checkRow = (row) => row.every(isNotShip);
+    const isCellNotShip = (cell) => !(cell instanceof Ship);
+    const checkRow = (row) => row.every(isCellNotShip);
     return this.grid.every(checkRow);
   }
 

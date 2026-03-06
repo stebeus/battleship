@@ -75,44 +75,37 @@ class GameBoard {
     return [topLeft, topRight, bottomLeft, bottomRight];
   }
 
-  #hasAdjacentShip(coordinates) {
+  #getAdjacentCoordinates(row, column, ...sliceOptions) {
+    const sides = this.#getAdjacentSides(row, column);
+    const corners = this.#getAdjacentCorners(row, column);
+
+    const coordinates = [...sides, ...corners];
+
+    return coordinates.slice(...sliceOptions);
+  }
+
+  #hasAdjacentShip(row, column, ...sliceOptions) {
+    const coordinates = this.#getAdjacentCoordinates(
+      row,
+      column,
+      ...sliceOptions,
+    );
+
     for (const [row, column] of coordinates) {
       if (this.#isCellShip(row, column)) return true;
     }
   }
 
   #isInvalid(row, column) {
-    // Sides
-    const topLeft = [row - 1, column - 1];
-    const topRight = [row - 1, column + 1];
-    const bottomLeft = [row + 1, column - 1];
-    const bottomRight = [row + 1, column + 1];
-    const horizontal = [row, column + 1];
-    const vertical = [row + 1, column];
-
-    const sides = [
-      topLeft,
-      topRight,
-      bottomLeft,
-      bottomRight,
-      horizontal,
-      vertical,
-    ];
-
     return (
       this.#isCellOutOfBounds(row, column) ||
       !this.#isCellEmpty(row, column) ||
-      this.#hasAdjacentShip(sides)
+      this.#hasAdjacentShip(row, column, 2)
     );
   }
 
   #validatePlacement({ length }, row, column, axis) {
-    // Pre
-    const previousHor = [row, column - 1];
-    const previousVer = [row - 1, column];
-    const sides = [previousHor, previousVer];
-
-    if (this.#hasAdjacentShip(sides)) return;
+    if (this.#hasAdjacentShip(row, column, 0, 2)) return;
 
     for (let cell = 0; cell < length; cell++) {
       if (this.#isInvalid(row, column)) return;

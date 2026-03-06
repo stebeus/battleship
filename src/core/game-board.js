@@ -48,7 +48,7 @@ class GameBoard {
   }
 
   #isCellEmpty(row, column) {
-    const cell = this.grid[row][column];
+    const cell = this.grid[row]?.[column];
     return cell === this.#emptyCell;
   }
 

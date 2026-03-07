@@ -1,8 +1,8 @@
 function parseHtml(strings, ...values) {
   const template = document.createElement('template');
-  const rawHtml = String.raw({ raw: strings }, ...values);
+  const html = String.raw({ raw: strings }, ...values);
 
-  template.innerHTML = rawHtml;
+  template.innerHTML = html;
 
   return template.content.firstElementChild;
 }

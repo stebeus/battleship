@@ -1,3 +1,6 @@
+import { Ship } from '../core/ship.js';
+import { parseCoordinates } from '../helpers/coordinates-helper.js';
+
 class CellStyle {
   constructor(cellType, classModifier) {
     this.cellType = cellType;
@@ -12,3 +15,21 @@ function modifyCellStyle(cell, coordinates, classModifier) {
     cell.classList.add(`grid__cell--${classModifier}`);
   }
 }
+
+function renderCell(cellElement, grid) {
+  const coordinates = cellElement.dataset.coordinates;
+  const [row, column] = parseCoordinates(coordinates);
+  const cell = grid[row][column];
+
+  const styles = [
+    new CellStyle(cell instanceof Ship, 'ship'),
+    new CellStyle(cell === 'm', 'miss'),
+    new CellStyle(cell === 'h', 'hit'),
+  ];
+
+  for (const { cellType, classModifier } of styles) {
+    if (cellType) modifyCellStyle(cellElement, coordinates, classModifier);
+  }
+}
+
+export { renderCell };

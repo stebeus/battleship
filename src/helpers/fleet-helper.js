@@ -16,7 +16,7 @@ function createFleet(quantity) {
 
   let shipLength = 1;
 
-  for (let division = 0; division < quantity; division++) {
+  for (let division = quantity; division > 0; division--) {
     const division = createDivision(quantity--, shipLength++);
     fleet.push(division);
   }

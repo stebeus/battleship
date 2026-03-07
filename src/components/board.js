@@ -2,7 +2,7 @@ import { parseHtml } from '../helpers/dom.js';
 import { createGrid } from './grid.js';
 
 function createBoard({ gameBoard: { grid }, name }) {
-  const gridContainer = createGrid(grid, name).outerHTML;
+  const gridContainer = createGrid(grid, name);
 
   return parseHtml`
     <div class="board">

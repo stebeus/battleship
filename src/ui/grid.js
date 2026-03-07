@@ -6,7 +6,7 @@ function createGrid(grid, name) {
 
   for (const row in grid) {
     for (const column in grid[row]) {
-      const cell = parseHtml`            
+      const cell = parseHtml`
         <div class="grid__cell" data-coordinates="${row},${column}"></div>
       `;
 

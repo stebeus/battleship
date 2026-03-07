@@ -1,7 +1,7 @@
 import './assets/style.css';
-import { createBoard } from './components/board.js';
-import { renderGrid } from './components/grid.js';
 import { Player } from './core/player.js';
+import { createBoard } from './ui/board.js';
+import { renderGrid } from './ui/grid.js';
 
 const main = document.querySelector('main');
 

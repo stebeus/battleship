@@ -1,7 +1,7 @@
 import { parseHTML } from '../helpers/dom.js';
 
-function createGrid(grid) {
-  const container = parseHTML`<div class="grid"></div>`;
+function createGrid(grid, name) {
+  const container = parseHTML`<div class="grid" data-player="${name}"></div>`;
 
   for (const row in grid) {
     for (const column in grid[row]) {

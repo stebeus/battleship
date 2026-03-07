@@ -23,3 +23,7 @@ main {
 .grid__cell--hit {
   background-color: red;
 }
+
+.grid__cell--miss {
+  background-color: gray;
+}

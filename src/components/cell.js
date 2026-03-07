@@ -8,6 +8,11 @@ class CellStyle {
   }
 }
 
+const createCellStyle = ([cellType, classModifier]) =>
+  new CellStyle(cellType, classModifier);
+
+const createCellStyles = (...styles) => styles.map(createCellStyle);
+
 function modifyCellStyle(cell, coordinates, classModifier) {
   const dataCoordinates = cell.dataset.coordinates;
 
@@ -21,11 +26,11 @@ function renderCell(cellElement, grid) {
   const [row, column] = parseCoordinates(coordinates);
   const cell = grid[row][column];
 
-  const styles = [
-    new CellStyle(cell instanceof Ship, 'ship'),
-    new CellStyle(cell === 'm', 'miss'),
-    new CellStyle(cell === 'h', 'hit'),
-  ];
+  const styles = createCellStyles(
+    [cell instanceof Ship, 'ship'],
+    [cell === 'm', 'miss'],
+    [cell === 'h', 'hit'],
+  );
 
   for (const { cellType, classModifier } of styles) {
     if (cellType) modifyCellStyle(cellElement, coordinates, classModifier);

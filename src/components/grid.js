@@ -1,4 +1,5 @@
 import { parseHtml } from '../helpers/dom.js';
+import { renderCell } from './cell.js';
 
 function createGrid(grid, name) {
   const container = parseHtml`<div class="grid" data-player="${name}"></div>`;
@@ -16,4 +17,12 @@ function createGrid(grid, name) {
   return container;
 }
 
-export { createGrid };
+function renderGrid({ gameBoard: { grid }, name }) {
+  const dataPlayer = `[data-player="${name}"]`;
+  const gridContainer = document.querySelector(dataPlayer);
+  const cells = gridContainer.children;
+
+  for (const cell of cells) renderCell(cell, grid);
+}
+
+export { createGrid, renderGrid };

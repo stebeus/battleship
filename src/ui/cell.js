@@ -1,5 +1,5 @@
 import { Ship } from '../core/ship.js';
-import { parseCoordinates } from '../helpers/coordinates-helper.js';
+import { parseCoordinates } from '../helpers/coordinates.js';
 
 class CellStyle {
   constructor(cellType, classModifier) {

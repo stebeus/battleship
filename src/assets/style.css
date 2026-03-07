@@ -19,3 +19,7 @@ main {
 .grid__cell--ship {
   background-color: blue;
 }
+
+.grid__cell--hit {
+  background-color: red;
+}

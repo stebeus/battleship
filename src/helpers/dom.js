@@ -1,10 +1,10 @@
-function parseHTML(strings, ...values) {
+function parseHtml(strings, ...values) {
   const template = document.createElement('template');
-  const rawHTML = String.raw({ raw: strings }, ...values);
+  const rawHtml = String.raw({ raw: strings }, ...values);
 
-  template.innerHTML = rawHTML;
+  template.innerHTML = rawHtml;
 
   return template.content.firstElementChild;
 }
 
-export { parseHTML };
+export { parseHtml };

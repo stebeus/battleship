@@ -1,11 +1,11 @@
-import { parseHTML } from '../helpers/dom.js';
+import { parseHtml } from '../helpers/dom.js';
 
 function createGrid(grid, name) {
-  const container = parseHTML`<div class="grid" data-player="${name}"></div>`;
+  const container = parseHtml`<div class="grid" data-player="${name}"></div>`;
 
   for (const row in grid) {
     for (const column in grid[row]) {
-      const cell = parseHTML`            
+      const cell = parseHtml`            
         <div class="grid__cell" data-coordinates="${row},${column}"></div>
       `;
 

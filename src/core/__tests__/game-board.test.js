@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { GameBoard } from '../game-board.js';
-import { createGrid } from '../grid-helper.js';
+import { createGrid } from '../grid.js';
 import { Ship } from '../ship.js';
 
 const gameBoard = new GameBoard();

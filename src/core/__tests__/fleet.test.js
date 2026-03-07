@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createDivision, createFleet } from '../fleet-helper.js';
+import { createDivision, createFleet } from '../fleet.js';
 
 describe('createDivision', () => {
   describe('Default behavior', () => {

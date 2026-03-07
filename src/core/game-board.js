@@ -1,5 +1,5 @@
-import { createFleet } from './fleet-helper.js';
-import { createGrid } from './grid-helper.js';
+import { createFleet } from './fleet.js';
+import { createGrid } from './grid.js';
 import { Ship } from './ship.js';
 
 class GameBoard {

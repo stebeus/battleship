@@ -10,4 +10,8 @@ const robot = new Player('Robot');
 const humanBoard = createBoard(human);
 const robotBoard = createBoard(robot);
 
+// Game board setups
+human.gameBoard.place(5, 2, 3, 'x');
+robot.gameBoard.place(5, 2, 3, 'y');
+
 main.append(humanBoard, robotBoard);

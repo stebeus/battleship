@@ -12,3 +12,12 @@
     margin: 0;
   }
 }
+
+canvas,
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}

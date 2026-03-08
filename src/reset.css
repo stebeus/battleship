@@ -1,3 +1,13 @@
+/* CSS DIRECTORY
+  1. GLOBAL
+  2. MEDIA
+  3. FORM CONTROLS
+  4. TEXT OVERFLOW
+  5. LINE WRAPPING
+*/
+
+/* || GLOBAL */
+
 *,
 *::before,
 *::after {
@@ -13,6 +23,8 @@
   }
 }
 
+/* || MEDIA */
+
 canvas,
 img,
 picture,
@@ -22,12 +34,16 @@ video {
   max-width: 100%;
 }
 
+/* || FORM CONTROLS */
+
 button,
 input,
 select,
 textarea {
   font: inherit;
 }
+
+/* || TEXT OVERFLOW */
 
 h1,
 h2,
@@ -38,6 +54,8 @@ h6,
 p {
   overflow-wrap: break-word;
 }
+
+/* || LINE WRAPPING */
 
 h1,
 h2,

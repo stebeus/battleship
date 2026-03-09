@@ -72,4 +72,12 @@ describe('createFleet', () => {
     const fleet = createFleet();
     expect(fleet).toHaveLength(1);
   });
+
+  it('creates no subarrays', () => {
+    const fleet = createFleet(2);
+
+    const isArray = (ship) => Array.isArray(ship);
+
+    expect(fleet.some(isArray)).toBeFalsy();
+  });
 });

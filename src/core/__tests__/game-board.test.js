@@ -207,6 +207,10 @@ describe('GameBoard.isCellOfType', () => {
     [0, 'miss'],
     ['hit', ship],
   ];
+
+  it('confirms if cell type does not exist', () => {
+    expect(gameBoard.isCellOfType(0, 0, 'JavaScript')).toBeFalsy();
+  });
 });
 
 describe('GameBoard.receiveAttack', () => {

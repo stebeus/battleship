@@ -91,4 +91,16 @@ describe('GameBoard.receiveAttack', () => {
   });
 });
 
-describe('GameBoard.isFleetSunk', () => {});
+describe('GameBoard.isFleetSunk', () => {
+  it('confirms that the fleet is not sunk', () => {
+    const ship = new Ship();
+
+    gameBoard.grid = [
+      [0, 0, 0],
+      [0, ship, 0],
+      [0, 0, 0],
+    ];
+
+    expect(gameBoard.isFleetSunk()).toBeFalsy();
+  });
+});

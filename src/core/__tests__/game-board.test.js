@@ -88,7 +88,16 @@ describe('GameBoard.place', () => {
 
     describe('When placing ships adjacently,', () => {
       describe('And when its on sides,', () => {
-        describe('And when the existing ship is horizontal', () => {});
+        describe('And when the existing ship is horizontal', () => {
+          const ship = new Ship(2);
+
+          const horizontalPlacement = [
+            [0, 0, 0, 0],
+            [0, ship, ship, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+          ];
+        });
       });
 
       describe('And when its on corners,', () => {

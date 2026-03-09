@@ -95,6 +95,14 @@ describe('GameBoard.place', () => {
           [0, ship, 0],
           [0, 0, 0],
         ];
+
+        beforeEach(() => {
+          gameBoard.grid = [
+            [0, 0, 0],
+            [0, ship, 0],
+            [0, 0, 0],
+          ];
+        });
       });
     });
   });

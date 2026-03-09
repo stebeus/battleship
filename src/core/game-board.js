@@ -49,7 +49,12 @@ class GameBoard {
 
   #validatePlacement({ length }, row, column, axis) {
     for (let cell = 0; cell < length; cell++) {
-      if (this.#isCellOutOfBounds(row, column)) return;
+      if (
+        this.#isCellOutOfBounds(row, column) ||
+        this.grid[row][column] !== this.#emptyCell
+      ) {
+        return;
+      }
 
       if (axis === 'x') column++;
       if (axis === 'y') row++;

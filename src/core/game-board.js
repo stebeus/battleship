@@ -21,6 +21,11 @@ class GameBoard {
     }
   }
 
+  isCellShip(row, column) {
+    const cell = this.grid[row]?.[column];
+    return cell instanceof Ship;
+  }
+
   receiveAttack(row, column) {
     const MISS = 'miss';
     const HIT = 'hit';
@@ -29,7 +34,7 @@ class GameBoard {
 
     if (cell === this.#emptyCell) this.grid[row][column] = MISS;
 
-    if (cell instanceof Ship) {
+    if (this.isCellShip(row, column)) {
       this.grid[row][column] = HIT;
       cell.hit();
     }
@@ -78,8 +83,7 @@ class GameBoard {
     const coordinates = this.#getAdjacentCoordinates(row, column);
 
     for (const [row, column] of coordinates) {
-      const cell = this.grid[row]?.[column];
-      if (cell instanceof Ship) return true;
+      if (this.isCellShip(row, column)) return true;
     }
   }
 

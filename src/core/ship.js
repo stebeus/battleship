@@ -1,3 +1,5 @@
+import { checkIsPositiveInteger } from '../utils/errors.js';
+
 class Ship {
   #length;
 
@@ -11,10 +13,7 @@ class Ship {
   }
 
   set length(value) {
-    if (!Number.isInteger(value) || value < 1) {
-      throw new Error(`Ship length (${value}) is not a positive integer`);
-    }
-
+    checkIsPositiveInteger(value, 'Ship length');
     this.#length = value;
   }
 
@@ -28,9 +27,7 @@ class Ship {
 }
 
 function createFleet(quantity = 1) {
-  if (!Number.isInteger(quantity) || quantity < 1) {
-    throw new Error(`Fleet size (${quantity}) is not a positive integer`);
-  }
+  checkIsPositiveInteger(quantity, 'Fleet size');
 
   const fleet = [];
   let currentShipLength = 1;

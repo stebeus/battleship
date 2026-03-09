@@ -87,7 +87,15 @@ describe('GameBoard.place', () => {
     });
 
     describe('When placing ships adjacently,', () => {
-      describe('And when its on corners,', () => {});
+      describe('And when its on corners,', () => {
+        const ship = new Ship();
+
+        const occupiedPlacement = [
+          [0, 0, 0],
+          [0, ship, 0],
+          [0, 0, 0],
+        ];
+      });
     });
   });
 });

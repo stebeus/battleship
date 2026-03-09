@@ -106,6 +106,17 @@ describe('GameBoard.place', () => {
               [0, 0, 0, 0],
             ];
           });
+
+          it.each`
+            side        | row  | column
+            ${'top'}    | ${0} | ${1}
+            ${'bottom'} | ${2} | ${1}
+            ${'left'}   | ${1} | ${0}
+            ${'right'}  | ${1} | ${3}
+          `('prevents placing ship on the $side', ({ row, column }) => {
+            gameBoard.place(0, row, column, 'x');
+            expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
+          });
         });
       });
 

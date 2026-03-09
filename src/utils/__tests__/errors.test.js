@@ -7,4 +7,10 @@ describe('checkIsPositiveInteger', () => {
       'Value (string) is not a positive integer',
     );
   });
+
+  it('throws error for floats', () => {
+    expect(() => checkIsPositiveInteger(0.5, 'Value')).toThrowError(
+      'Value (0.5) is not a positive integer',
+    );
+  });
 });

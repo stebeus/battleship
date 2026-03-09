@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Ship } from '../ship.js';
+import { createFleet, Ship } from '../ship.js';
 
 describe('Ship', () => {
   describe('Invalid inputs', () => {
@@ -58,5 +58,9 @@ describe('Ship', () => {
 });
 
 describe('createFleet', () => {
-  describe('Invalid inputs', () => {});
+  describe('Invalid inputs', () => {
+    it('rejects non-integers', () => {
+      expect(() => createFleet('1')).toThrowError();
+    });
+  });
 });

@@ -30,5 +30,20 @@ describe('GameBoard.place', () => {
       // Assert
       expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
     });
+
+    it('places ship vertically', () => {
+      // Arrange
+      const verticalPlacement = [
+        [0, 0, 0],
+        [0, ship, 0],
+        [0, ship, 0],
+      ];
+
+      // Act
+      gameBoard.place(4, 1, 1, 'y');
+
+      // Assert
+      expect(gameBoard.grid).toStrictEqual(verticalPlacement);
+    });
   });
 });

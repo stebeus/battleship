@@ -31,6 +31,12 @@ class GameBoard {
       cell.hit();
     }
   }
+
+  isFleetSunk() {
+    const isCellSunk = (cell) => !(cell instanceof Ship);
+    const checkRow = (row) => row.every(isCellSunk);
+    return this.grid.every(checkRow);
+  }
 }
 
 export { GameBoard };

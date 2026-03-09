@@ -7,5 +7,10 @@ describe('Ship', () => {
     expect(ship).toHaveLength(1);
   });
 
-  describe('Ship.isSunk', () => {});
+  describe('Ship.isSunk', () => {
+    it('confirms if ship is not sunk', () => {
+      const ship = new Ship();
+      expect(ship.isSunk()).toBeFalsy;
+    });
+  });
 });

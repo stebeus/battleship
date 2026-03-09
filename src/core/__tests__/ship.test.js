@@ -6,6 +6,10 @@ describe('Ship', () => {
     it('rejects non-integers', () => {
       expect(() => new Ship('1')).toThrowError();
     });
+
+    it('rejects numbers less than one', () => {
+      expect(() => new Ship(0)).toThrowError();
+    });
   });
 
   it('has length one by default', () => {

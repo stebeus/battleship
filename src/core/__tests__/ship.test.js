@@ -67,4 +67,9 @@ describe('createFleet', () => {
       expect(() => createFleet(0)).toThrowError();
     });
   });
+
+  it('creates one ship by default', () => {
+    const fleet = createFleet();
+    expect(fleet).toHaveLength(1);
+  });
 });

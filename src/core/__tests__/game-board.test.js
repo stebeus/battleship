@@ -72,5 +72,11 @@ describe('GameBoard.receiveAttack', () => {
     });
   });
 
-  describe('Given invalid attacks,', () => {});
+  describe('Given invalid attacks,', () => {
+    const ship = new Ship(2);
+
+    beforeEach(() => {
+      gameBoard.grid[0] = ['miss', 'hit', ship];
+    });
+  });
 });

@@ -21,6 +21,11 @@ class GameBoard {
     }
   }
 
+  isCellOfType(row, column, cellType) {
+    const cell = this.grid[row]?.[column];
+    return cell === cellType;
+  }
+
   isCellShip(row, column) {
     const cell = this.grid[row]?.[column];
     return cell instanceof Ship;
@@ -32,7 +37,9 @@ class GameBoard {
 
     const cell = this.grid[row][column];
 
-    if (cell === this.#emptyCell) this.grid[row][column] = MISS;
+    if (this.isCellOfType(row, column, this.#emptyCell)) {
+      this.grid[row][column] = MISS;
+    }
 
     if (this.isCellShip(row, column)) {
       this.grid[row][column] = HIT;
@@ -91,7 +98,7 @@ class GameBoard {
     for (let cell = 0; cell < length; cell++) {
       if (
         this.#isCellOutOfBounds(row, column) ||
-        this.grid[row][column] !== this.#emptyCell ||
+        !this.isCellOfType(row, column, this.#emptyCell) ||
         this.#hasAdjacentShip(row, column)
       ) {
         return;

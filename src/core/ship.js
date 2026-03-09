@@ -17,6 +17,10 @@ class Ship {
 
     this.#length = value;
   }
+
+  isSunk() {
+    return this.health === 0;
+  }
 }
 
 export { Ship };

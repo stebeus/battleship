@@ -219,6 +219,10 @@ describe('GameBoard.isCellOfType', () => {
   it('confirms if cell is a missed shot', () => {
     expect(gameBoard.isCellOfType(1, 0, 'miss')).toBeTruthy();
   });
+
+  it('confirms if cell is a hit shot', () => {
+    expect(gameBoard.isCellOfType(1, 0, 'hit')).toBeTruthy();
+  });
 });
 
 describe('GameBoard.receiveAttack', () => {

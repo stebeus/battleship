@@ -3,4 +3,6 @@ import { GameBoard } from '../game-board.js';
 
 const gameBoard = new GameBoard();
 
-describe('GameBoard.place', () => {});
+describe('GameBoard.place', () => {
+  describe('Given valid placements,', () => {});
+});

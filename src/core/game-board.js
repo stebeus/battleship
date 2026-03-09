@@ -40,10 +40,10 @@ class GameBoard {
     }
 
     if (this.isCellShip(row, column)) {
-      const cell = this.grid[row][column];
+      const ship = this.grid[row][column];
 
       this.grid[row][column] = HIT;
-      cell.hit();
+      ship.hit();
     }
   }
 

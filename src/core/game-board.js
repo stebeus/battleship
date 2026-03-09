@@ -96,13 +96,13 @@ class GameBoard {
 
   #validatePlacement({ length }, row, column, axis) {
     for (let cell = 0; cell < length; cell++) {
-      if (
-        this.#isCellOutOfBounds(row, column) ||
-        !this.isCellOfType(row, column, this.#emptyCell) ||
-        this.#hasAdjacentShip(row, column)
-      ) {
-        return;
-      }
+      const validators = [
+        this.#isCellOutOfBounds(row, column),
+        !this.isCellOfType(row, column, this.#emptyCell),
+        this.#hasAdjacentShip(row, column),
+      ];
+
+      for (const validator of validators) if (validator) return;
 
       if (axis === 'x') column++;
       if (axis === 'y') row++;

@@ -10,6 +10,9 @@ class GameBoard {
   place(shipIndex, row, column, axis) {
     const ship = this.fleet[shipIndex];
 
+    const isPlacementValid = this.#validatePlacement(ship, row, column, axis);
+    if (!isPlacementValid) return;
+
     for (let cell = 0; cell < ship.length; cell++) {
       this.grid[row][column] = ship;
 

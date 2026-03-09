@@ -184,20 +184,19 @@ describe('GameBoard.place', () => {
 });
 
 describe('GameBoard.isCellShip', () => {
+  const ship = new Ship();
+
+  gameBoard.grid = [
+    [0, 0],
+    [0, ship],
+  ];
+
   it('confirms if cell is not a ship', () => {
-    gameBoard.grid = createMatrix(2);
     expect(gameBoard.isCellShip(0, 0)).toBeFalsy();
   });
 
   it('confirms if cell is a ship', () => {
-    const ship = new Ship();
-
-    gameBoard.grid = [
-      [ship, 0],
-      [0, 0],
-    ];
-
-    expect(gameBoard.isCellShip(0, 0)).toBeTruthy();
+    expect(gameBoard.isCellShip(1, 1)).toBeTruthy();
   });
 });
 

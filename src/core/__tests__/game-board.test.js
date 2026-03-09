@@ -90,3 +90,5 @@ describe('GameBoard.receiveAttack', () => {
     });
   });
 });
+
+describe('GameBoard.isFleetSunk', () => {});

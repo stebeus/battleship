@@ -37,6 +37,12 @@ class GameBoard {
     const checkRow = (row) => row.every(isCellSunk);
     return this.grid.every(checkRow);
   }
+
+  #isCellOutOfBounds(row, column) {
+    const gridRow = this.grid[row];
+    const gridColumn = gridRow?.[column];
+    return gridRow == null || gridColumn == null;
+  }
 }
 
 export { GameBoard };

@@ -56,11 +56,21 @@ class GameBoard {
     return [topLeft, topRight, bottomLeft, bottomRight];
   }
 
+  #hasAdjacentShip(row, column) {
+    const corners = this.#getAdjacentCorners(row, column);
+
+    for (const [row, column] of corners) {
+      const cell = this.grid[row]?.[column];
+      if (cell instanceof Ship) return true;
+    }
+  }
+
   #validatePlacement({ length }, row, column, axis) {
     for (let cell = 0; cell < length; cell++) {
       if (
         this.#isCellOutOfBounds(row, column) ||
-        this.grid[row][column] !== this.#emptyCell
+        this.grid[row][column] !== this.#emptyCell ||
+        this.#hasAdjacentShip(row, column)
       ) {
         return;
       }

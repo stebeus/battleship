@@ -44,3 +44,5 @@ describe('GameBoard.place', () => {
     });
   });
 });
+
+describe('GameBoard.receiveAttack', () => {});

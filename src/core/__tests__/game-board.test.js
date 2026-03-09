@@ -200,7 +200,14 @@ describe('GameBoard.isCellShip', () => {
   });
 });
 
-describe('GameBoard.isCellOfType', () => {});
+describe('GameBoard.isCellOfType', () => {
+  const ship = new Ship();
+
+  gameBoard.grid = [
+    [0, 'miss'],
+    ['hit', ship],
+  ];
+});
 
 describe('GameBoard.receiveAttack', () => {
   describe('Given valid attacks,', () => {

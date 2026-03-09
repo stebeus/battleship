@@ -21,5 +21,16 @@ describe('Ship', () => {
     });
   });
 
-  describe('Ship.hit', () => {});
+  describe('Ship.hit', () => {
+    it('reduces ship health by one', () => {
+      // Arrange
+      const ship = new Ship(2);
+
+      // Act
+      ship.hit();
+
+      // Assert
+      expect(ship.health).toBe(1);
+    });
+  });
 });

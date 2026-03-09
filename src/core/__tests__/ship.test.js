@@ -6,4 +6,6 @@ describe('Ship', () => {
     const ship = new Ship();
     expect(ship).toHaveLength(1);
   });
+
+  describe('Ship.isSunk', () => {});
 });

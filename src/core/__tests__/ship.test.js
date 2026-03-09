@@ -57,4 +57,6 @@ describe('Ship', () => {
   });
 });
 
-describe('createFleet', () => {});
+describe('createFleet', () => {
+  describe('Invalid inputs', () => {});
+});

@@ -103,4 +103,9 @@ describe('GameBoard.isFleetSunk', () => {
 
     expect(gameBoard.isFleetSunk()).toBeFalsy();
   });
+
+  it('confirms that the fleet is sunk', () => {
+    gameBoard.grid = createMatrix(3, 3);
+    expect(gameBoard.isFleetSunk()).toBeTruthy();
+  });
 });

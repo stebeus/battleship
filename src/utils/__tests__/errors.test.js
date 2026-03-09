@@ -13,4 +13,10 @@ describe('checkIsPositiveInteger', () => {
       'Value (0.5) is not a positive integer',
     );
   });
+
+  it('throws error for numbers less than one', () => {
+    expect(() => checkIsPositiveInteger(0, 'Value')).toThrowError(
+      'Value (0) is not a positive integer',
+    );
+  });
 });

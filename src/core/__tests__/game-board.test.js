@@ -183,7 +183,12 @@ describe('GameBoard.place', () => {
   });
 });
 
-describe('GameBoard.isCellShip', () => {});
+describe('GameBoard.isCellShip', () => {
+  it('confirms if cell is not a ship', () => {
+    gameBoard.grid = createMatrix(2);
+    expect(gameBoard.isCellShip(0, 0)).toBeFalsy();
+  });
+});
 
 describe('GameBoard.receiveAttack', () => {
   describe('Given valid attacks,', () => {

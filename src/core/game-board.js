@@ -43,6 +43,17 @@ class GameBoard {
     const gridColumn = gridRow?.[column];
     return gridRow == null || gridColumn == null;
   }
+
+  #validatePlacement({ length }, row, column, axis) {
+    for (let cell = 0; cell < length; cell++) {
+      if (this.#isCellOutOfBounds(row, column)) return;
+
+      if (axis === 'x') column++;
+      if (axis === 'y') row++;
+    }
+
+    return true;
+  }
 }
 
 export { GameBoard };

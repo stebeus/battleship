@@ -46,5 +46,12 @@ describe('GameBoard.place', () => {
 });
 
 describe('GameBoard.receiveAttack', () => {
-  describe('Given valid attacks,', () => {});
+  describe('Given valid attacks,', () => {
+    let ship;
+
+    beforeEach(() => {
+      ship = new Ship(2);
+      gameBoard.grid[0] = [0, ship, ship];
+    });
+  });
 });

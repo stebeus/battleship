@@ -83,5 +83,10 @@ describe('GameBoard.receiveAttack', () => {
       gameBoard.receiveAttack(0, 0);
       expect(gameBoard.grid[0]).toStrictEqual(['miss', 'hit', ship]);
     });
+
+    it('does not alter hit shots', () => {
+      gameBoard.receiveAttack(0, 1);
+      expect(gameBoard.grid[0]).toStrictEqual(['miss', 'hit', ship]);
+    });
   });
 });

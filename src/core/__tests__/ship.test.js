@@ -2,7 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { Ship } from '../ship.js';
 
 describe('Ship', () => {
-  describe('Invalid inputs', () => {});
+  describe('Invalid inputs', () => {
+    it('rejects non-integers', () => {
+      expect(() => new Ship('1')).toThrowError();
+    });
+  });
 
   it('has length one by default', () => {
     const ship = new Ship();

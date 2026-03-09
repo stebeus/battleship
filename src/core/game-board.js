@@ -47,6 +47,15 @@ class GameBoard {
     return gridRow == null || gridColumn == null;
   }
 
+  #getAdjacentCorners(row, column) {
+    const topLeft = [row - 1, column - 1];
+    const topRight = [row - 1, column + 1];
+    const bottomLeft = [row + 1, column - 1];
+    const bottomRight = [row + 1, column + 1];
+
+    return [topLeft, topRight, bottomLeft, bottomRight];
+  }
+
   #validatePlacement({ length }, row, column, axis) {
     for (let cell = 0; cell < length; cell++) {
       if (

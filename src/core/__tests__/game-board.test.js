@@ -49,6 +49,8 @@ describe('GameBoard.place', () => {
       beforeEach(() => {
         gameBoard.grid = createMatrix(3, 3);
       });
+
+      const emptyPlacement = createMatrix(3, 3);
     });
   });
 });

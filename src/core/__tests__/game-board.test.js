@@ -103,6 +103,17 @@ describe('GameBoard.place', () => {
             [0, 0, 0],
           ];
         });
+
+        it.each`
+          corner            | row  | column
+          ${'top left'}     | ${0} | ${0}
+          ${'top right'}    | ${0} | ${2}
+          ${'bottom left'}  | ${2} | ${0}
+          ${'bottom right'} | ${2} | ${2}
+        `('prevents placing ship on the $corner corner', ({ row, column }) => {
+          gameBoard.place(0, row, column, 'x');
+          expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
+        });
       });
     });
   });

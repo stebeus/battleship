@@ -45,4 +45,6 @@ describe('GameBoard.place', () => {
   });
 });
 
-describe('GameBoard.receiveAttack', () => {});
+describe('GameBoard.receiveAttack', () => {
+  describe('Given valid attacks,', () => {});
+});

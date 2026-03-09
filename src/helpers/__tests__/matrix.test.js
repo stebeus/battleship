@@ -14,3 +14,8 @@ it('creates a two row matrix', () => {
   const matrix = createMatrix(2);
   expect(matrix).toHaveLength(2);
 });
+
+it('creates a two column matrix', () => {
+  const matrix = createMatrix(2, 2);
+  expect(matrix[0]).toHaveLength(2);
+});

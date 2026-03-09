@@ -86,7 +86,9 @@ describe('GameBoard.place', () => {
       expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
     });
 
-    describe('When placing ships adjacently,', () => {});
+    describe('When placing ships adjacently,', () => {
+      describe('And when its on corners,', () => {});
+    });
   });
 });
 

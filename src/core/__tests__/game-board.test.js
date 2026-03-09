@@ -183,6 +183,8 @@ describe('GameBoard.place', () => {
   });
 });
 
+describe('GameBoard.isCellShip', () => {});
+
 describe('GameBoard.receiveAttack', () => {
   describe('Given valid attacks,', () => {
     let ship;

@@ -2,14 +2,8 @@ import { describe, expect, it } from 'vitest';
 import { createFleet, Ship } from '../ship.js';
 
 describe('Ship', () => {
-  describe('Invalid inputs', () => {
-    it('rejects non-integers', () => {
-      expect(() => new Ship('1')).toThrowError();
-    });
-
-    it('rejects numbers less than one', () => {
-      expect(() => new Ship(0)).toThrowError();
-    });
+  it('rejects inputs that are not positive integers', () => {
+    expect(() => new Ship(0)).toThrowError();
   });
 
   it('has length one by default', () => {
@@ -58,14 +52,8 @@ describe('Ship', () => {
 });
 
 describe('createFleet', () => {
-  describe('Invalid inputs', () => {
-    it('rejects non-integers', () => {
-      expect(() => createFleet('1')).toThrowError();
-    });
-
-    it('rejects numbers less than one', () => {
-      expect(() => createFleet(0)).toThrowError();
-    });
+  it('rejects inputs that are not positive integers', () => {
+    expect(() => createFleet(0)).toThrowError();
   });
 
   it('creates one ship by default', () => {

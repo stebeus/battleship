@@ -65,10 +65,19 @@ class GameBoard {
     return [topLeft, topRight, bottomLeft, bottomRight];
   }
 
-  #hasAdjacentShip(row, column) {
+  #getAdjacentCoordinates(row, column) {
+    const sides = this.#getAdjacentSides(row, column);
     const corners = this.#getAdjacentCorners(row, column);
 
-    for (const [row, column] of corners) {
+    const coordinates = [...sides, ...corners];
+
+    return coordinates;
+  }
+
+  #hasAdjacentShip(row, column) {
+    const coordinates = this.#getAdjacentCoordinates(row, column);
+
+    for (const [row, column] of coordinates) {
       const cell = this.grid[row]?.[column];
       if (cell instanceof Ship) return true;
     }

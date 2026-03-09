@@ -19,3 +19,12 @@ it('creates a two column matrix', () => {
   const matrix = createMatrix(2, 2);
   expect(matrix[0]).toHaveLength(2);
 });
+
+it('represents empty cells as zero', () => {
+  const matrix = createMatrix(2, 2);
+
+  const isCellZero = (cell) => cell === 0;
+  const checkRow = (row) => row.every(isCellZero);
+
+  expect(matrix.every(checkRow)).toBeTruthy();
+});

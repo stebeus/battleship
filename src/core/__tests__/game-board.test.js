@@ -71,4 +71,6 @@ describe('GameBoard.receiveAttack', () => {
       expect(gameBoard.grid[0]).toStrictEqual(['miss', ship, ship]);
     });
   });
+
+  describe('Given invalid attacks,', () => {});
 });

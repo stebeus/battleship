@@ -43,6 +43,8 @@ describe('GameBoard.place', () => {
       expect(gameBoard.grid).toStrictEqual(verticalPlacement);
     });
   });
+
+  describe('Given invalid placements,', () => {});
 });
 
 describe('GameBoard.receiveAttack', () => {

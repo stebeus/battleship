@@ -9,3 +9,8 @@ it('creates an one cell matrix by default', () => {
   const matrix = createMatrix();
   expect(matrix).toStrictEqual([0]);
 });
+
+it('creates a two row matrix', () => {
+  const matrix = createMatrix(2);
+  expect(matrix).toHaveLength(2);
+});

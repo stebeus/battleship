@@ -1,5 +1,5 @@
-import { createMatrix } from '../helpers/matrix';
-import { createFleet } from './ship.js';
+import { createMatrix } from '../helpers/matrix.js';
+import { createFleet, Ship } from './ship.js';
 
 class GameBoard {
   fleet = createFleet(4);
@@ -15,6 +15,20 @@ class GameBoard {
 
       if (axis === 'x') column++;
       if (axis === 'y') row++;
+    }
+  }
+
+  receiveAttack(row, column) {
+    const MISS = 'miss';
+    const HIT = 'hit';
+
+    const cell = this.grid[row][column];
+
+    if (cell === this.#emptyCell) this.grid[row][column] = MISS;
+
+    if (cell instanceof Ship) {
+      this.grid[row][column] = HIT;
+      cell.hit();
     }
   }
 }

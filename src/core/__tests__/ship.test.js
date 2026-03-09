@@ -32,5 +32,17 @@ describe('Ship', () => {
       // Assert
       expect(ship.health).toBe(1);
     });
+
+    it('stops reducing ship health when it is zero', () => {
+      // Arrange
+      const ship = new Ship();
+      ship.health = 0;
+
+      // Act
+      ship.hit();
+
+      // Assert
+      expect(ship.health).toBe(0);
+    });
   });
 });

@@ -12,5 +12,12 @@ describe('Ship', () => {
       const ship = new Ship();
       expect(ship.isSunk()).toBeFalsy;
     });
+
+    it('confirms if ship not sunk', () => {
+      const ship = new Ship();
+      ship.health = 0;
+
+      expect(ship.isSunk()).toBeFalsy;
+    });
   });
 });

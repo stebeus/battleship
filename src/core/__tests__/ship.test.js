@@ -56,3 +56,5 @@ describe('Ship', () => {
     });
   });
 });
+
+describe('createFleet', () => {});

@@ -45,7 +45,11 @@ describe('GameBoard.place', () => {
   });
 
   describe('Given invalid placements,', () => {
-    describe('When grid space is insufficient,', () => {});
+    describe('When grid space is insufficient,', () => {
+      beforeEach(() => {
+        gameBoard.grid = createMatrix(3, 3);
+      });
+    });
   });
 });
 

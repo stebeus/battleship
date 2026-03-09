@@ -211,6 +211,10 @@ describe('GameBoard.isCellOfType', () => {
   it('confirms if cell type does not exist', () => {
     expect(gameBoard.isCellOfType(0, 0, 'JavaScript')).toBeFalsy();
   });
+
+  it('confirms if cell is empty', () => {
+    expect(gameBoard.isCellOfType(0, 0, 0)).toBeTruthy();
+  });
 });
 
 describe('GameBoard.receiveAttack', () => {

@@ -1,3 +1,9 @@
-import { describe } from 'vitest';
+import { describe, expect, it } from 'vitest';
+import { Ship } from '../ship.js';
 
-describe('Ship', () => {});
+describe('Ship', () => {
+  it('has length one by default', () => {
+    const ship = new Ship();
+    expect(ship).toHaveLength(1);
+  });
+});

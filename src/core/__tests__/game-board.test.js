@@ -53,5 +53,7 @@ describe('GameBoard.receiveAttack', () => {
       ship = new Ship(2);
       gameBoard.grid[0] = [0, ship, ship];
     });
+
+    describe('When a shot is hit', () => {});
   });
 });

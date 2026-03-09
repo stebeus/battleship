@@ -56,6 +56,11 @@ describe('GameBoard.place', () => {
         gameBoard.place(4, 2, 2, 'x');
         expect(gameBoard.grid).toStrictEqual(emptyPlacement);
       });
+
+      it('prevents placing ship vertically', () => {
+        gameBoard.place(4, 2, 2, 'y');
+        expect(gameBoard.grid).toStrictEqual(emptyPlacement);
+      });
     });
   });
 });

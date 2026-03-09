@@ -20,4 +20,6 @@ describe('Ship', () => {
       expect(ship.isSunk()).toBeFalsy;
     });
   });
+
+  describe('Ship.hit', () => {});
 });

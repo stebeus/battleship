@@ -27,4 +27,23 @@ class Ship {
   }
 }
 
-export { Ship };
+function createFleet(quantity = 1) {
+  if (!Number.isInteger(quantity) || quantity < 1) {
+    throw new Error(`Fleet size (${quantity}) is not a positive integer`);
+  }
+
+  const fleet = [];
+  let currentShipLength = 1;
+
+  const createDivision = (size, shipLength) =>
+    Array.from({ length: size }, () => new Ship(shipLength));
+
+  for (let remainingUnits = quantity; remainingUnits > 0; remainingUnits--) {
+    const division = createDivision(remainingUnits, currentShipLength++);
+    fleet.push(...division);
+  }
+
+  return fleet;
+}
+
+export { Ship, createFleet };

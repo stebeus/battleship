@@ -51,6 +51,11 @@ describe('GameBoard.place', () => {
       });
 
       const emptyPlacement = createMatrix(3, 3);
+
+      it('prevents placing ship horizontally', () => {
+        gameBoard.place(4, 2, 2, 'x');
+        expect(gameBoard.grid).toStrictEqual(emptyPlacement);
+      });
     });
   });
 });

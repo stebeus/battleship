@@ -35,13 +35,13 @@ class GameBoard {
     const MISS = 'miss';
     const HIT = 'hit';
 
-    const cell = this.grid[row][column];
-
     if (this.isCellOfType(row, column, this.#emptyCell)) {
       this.grid[row][column] = MISS;
     }
 
     if (this.isCellShip(row, column)) {
+      const cell = this.grid[row][column];
+
       this.grid[row][column] = HIT;
       cell.hit();
     }

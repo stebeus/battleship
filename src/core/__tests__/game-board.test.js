@@ -201,27 +201,21 @@ describe('GameBoard.isCellShip', () => {
 });
 
 describe('GameBoard.isCellOfType', () => {
-  const ship = new Ship();
-
-  gameBoard.grid = [
-    [0, 'miss'],
-    ['hit', ship],
-  ];
-
   it('confirms if cell type does not exist', () => {
+    gameBoard.grid = [[0], [0]];
     expect(gameBoard.isCellOfType(0, 0, 'JavaScript')).toBeFalsy();
   });
 
-  it('confirms if cell is empty', () => {
-    expect(gameBoard.isCellOfType(0, 0, 0)).toBeTruthy();
-  });
-
-  it('confirms if cell is a missed shot', () => {
-    expect(gameBoard.isCellOfType(1, 0, 'miss')).toBeTruthy();
-  });
-
-  it('confirms if cell is a hit shot', () => {
-    expect(gameBoard.isCellOfType(1, 0, 'hit')).toBeTruthy();
+  describe('Given valid cell type units,', () => {
+    it.each`
+      type               | symbol
+      ${'empty'}         | ${0}
+      ${'a missed shot'} | ${'miss'}
+      ${'a hit shot'}    | ${'hit'}
+    `('confirms if it is $type', ({ symbol }) => {
+      gameBoard.grid = [[symbol], [0]];
+      expect(gameBoard.isCellOfType(0, 0, symbol)).toBeTruthy();
+    });
   });
 });
 

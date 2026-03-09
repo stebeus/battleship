@@ -118,6 +118,37 @@ describe('GameBoard.place', () => {
             expect(gameBoard.grid).toStrictEqual(horizontalPlacement);
           });
         });
+
+        describe('And when the existing ship is vertical', () => {
+          const ship = new Ship(2);
+
+          const verticalPlacement = [
+            [0, 0, 0, 0],
+            [0, ship, 0, 0],
+            [0, ship, 0, 0],
+            [0, 0, 0, 0],
+          ];
+
+          beforeEach(() => {
+            gameBoard.grid = [
+              [0, 0, 0, 0],
+              [0, ship, 0, 0],
+              [0, ship, 0, 0],
+              [0, 0, 0, 0],
+            ];
+          });
+
+          it.each`
+            side        | row  | column
+            ${'top'}    | ${0} | ${1}
+            ${'bottom'} | ${3} | ${1}
+            ${'left'}   | ${1} | ${0}
+            ${'right'}  | ${1} | ${2}
+          `('prevents placing ship on the $side', ({ row, column }) => {
+            gameBoard.place(0, row, column, 'x');
+            expect(gameBoard.grid).toStrictEqual(verticalPlacement);
+          });
+        });
       });
 
       describe('And when its on corners,', () => {

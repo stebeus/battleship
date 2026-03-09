@@ -62,6 +62,29 @@ describe('GameBoard.place', () => {
         expect(gameBoard.grid).toStrictEqual(emptyPlacement);
       });
     });
+
+    it('prevents overriding occupied cells', () => {
+      // Arrange
+      const ship = new Ship();
+
+      const occupiedPlacement = [
+        [0, 0, 0],
+        [0, ship, 0],
+        [0, 0, 0],
+      ];
+
+      gameBoard.grid = [
+        [0, 0, 0],
+        [0, ship, 0],
+        [0, 0, 0],
+      ];
+
+      // Act
+      gameBoard.place(4, 1, 1, 'x');
+
+      // Assert
+      expect(gameBoard.grid).toStrictEqual(occupiedPlacement);
+    });
   });
 });
 

@@ -1,4 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
+import { createMatrix } from '../../helpers/matrix.js';
 import { GameBoard } from '../game-board.js';
 import { Ship } from '../ship.js';
 
@@ -7,11 +8,7 @@ const gameBoard = new GameBoard();
 describe('GameBoard.place', () => {
   describe('Given valid placements,', () => {
     beforeEach(() => {
-      gameBoard.grid = [
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, 0],
-      ];
+      gameBoard.grid = createMatrix(3, 3);
     });
 
     const ship = new Ship(2);

@@ -201,6 +201,8 @@ describe('GameBoard.isCellShip', () => {
   });
 });
 
+describe('GameBoard.isCellOfType', () => {});
+
 describe('GameBoard.receiveAttack', () => {
   describe('Given valid attacks,', () => {
     let ship;

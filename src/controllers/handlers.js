@@ -1,5 +1,8 @@
-import { players, registerAttack } from './game-controller.js';
+import { activePlayer, players, registerAttack } from './game-controller.js';
 
-const handleAttack = ({ target }) => registerAttack(target, players[1]);
+function handleAttack({ target }) {
+  if (activePlayer !== players[0]) return;
+  registerAttack(target, players[1]);
+}
 
 export { handleAttack };

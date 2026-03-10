@@ -1,5 +1,6 @@
 import './assets/style.css';
 import { createBoard } from './components/board.js';
+import { renderGrid } from './components/grid.js';
 import { players } from './controllers/game-controller.js';
 
 const main = document.querySelector('main');
@@ -12,3 +13,6 @@ players[0].gameBoard.place(7, 3, 3, 'x');
 players[1].gameBoard.place(7, 3, 3, 'y');
 
 main.append(humanBoard, robotBoard);
+
+// Human grid render
+renderGrid(players[0]);

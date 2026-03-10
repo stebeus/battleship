@@ -4,6 +4,8 @@ import { parseCoordinates } from '../helpers/coordinates.js';
 
 const players = Player.of('Human', 'Robot');
 
+let activePlayer = players[0];
+
 function registerAttack(cell, { gameBoard }) {
   const coordinates = cell.dataset.coords;
   const [row, column] = parseCoordinates(coordinates);
@@ -12,4 +14,4 @@ function registerAttack(cell, { gameBoard }) {
   renderCell(cell, gameBoard);
 }
 
-export { players, registerAttack };
+export { players, activePlayer, registerAttack };

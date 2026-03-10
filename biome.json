@@ -20,6 +20,12 @@
         "useImportExtensions": "error"
       },
       "style": {
+        "useFilenamingConvention": {
+          "level": "on",
+          "options": {
+            "filenameCases": ["kebab-case"]
+          }
+        },
         "useNamingConvention": "on"
       }
     }

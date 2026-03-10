@@ -1,1 +1,11 @@
 @import url('./reset.css');
+
+main {
+  display: flex;
+  gap: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template: repeat(10, 50px) / repeat(10, 50px);
+}

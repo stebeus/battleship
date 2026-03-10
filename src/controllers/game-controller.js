@@ -6,9 +6,24 @@ const players = Player.of('Human', 'Robot');
 
 let activePlayer = players[0];
 
+function switchTurn(gameBoard, row, column, players, activePlayer) {
+  const isCellEmpty = gameBoard.isCellOfType(row, column, 0);
+
+  if (isCellEmpty) {
+    const currentIndex = players.indexOf(activePlayer);
+    const nextIndex = (currentIndex + 1) % players.length;
+
+    activePlayer = players[nextIndex];
+  }
+
+  return activePlayer;
+}
+
 function registerAttack(cell, { gameBoard }) {
   const coordinates = cell.dataset.coords;
   const [row, column] = parseCoordinates(coordinates);
+
+  activePlayer = switchTurn(gameBoard, row, column, players, activePlayer);
 
   gameBoard.receiveAttack(row, column);
   renderCell(cell, gameBoard);

@@ -9,5 +9,6 @@ const robotBoard = createBoard(players[1]);
 
 // Board setups
 players[0].gameBoard.place(7, 3, 3, 'x');
+players[1].gameBoard.place(7, 3, 3, 'y');
 
 main.append(humanBoard, robotBoard);

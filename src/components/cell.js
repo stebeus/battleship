@@ -11,3 +11,11 @@ class CellStyle {
     this.classModifier = `grid__cell--${classModifier}`;
   }
 }
+
+function modifyCellStyle(cell, coordinates, classModifier) {
+  const dataCoords = cell.dataset.coords;
+
+  if (dataCoords === coordinates) {
+    cell.classList.add(classModifier);
+  }
+}

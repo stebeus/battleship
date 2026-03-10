@@ -18,6 +18,9 @@
       "recommended": true,
       "correctness": {
         "useImportExtensions": "error"
+      },
+      "style": {
+        "useNamingConvention": "on"
       }
     }
   },

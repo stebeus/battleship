@@ -32,17 +32,17 @@ class GameBoard {
   }
 
   receiveAttack(row, column) {
-    const MISS = 'miss';
-    const HIT = 'hit';
+    const miss = 'miss';
+    const hit = 'hit';
 
     if (this.isCellOfType(row, column, this.#emptyCell)) {
-      this.grid[row][column] = MISS;
+      this.grid[row][column] = miss;
     }
 
     if (this.isCellShip(row, column)) {
       const ship = this.grid[row][column];
 
-      this.grid[row][column] = HIT;
+      this.grid[row][column] = hit;
       ship.hit();
     }
   }

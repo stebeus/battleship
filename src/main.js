@@ -9,11 +9,11 @@ const main = document.querySelector('main');
 const humanBoard = createBoard(players[0]);
 const robotBoard = createBoard(players[1]);
 
+main.append(humanBoard, robotBoard);
+
 // Board setups
 players[0].gameBoard.place(7, 3, 3, 'x');
 players[1].gameBoard.place(7, 3, 3, 'y');
-
-main.append(humanBoard, robotBoard);
 
 // Human grid render
 renderGrid(players[0]);

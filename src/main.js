@@ -2,6 +2,7 @@ import './assets/style.css';
 import { createBoard } from './components/board.js';
 import { renderGrid } from './components/grid.js';
 import { players } from './controllers/game-controller.js';
+import { handleAttack } from './controllers/handlers.js';
 
 const main = document.querySelector('main');
 
@@ -16,3 +17,6 @@ main.append(humanBoard, robotBoard);
 
 // Human grid render
 renderGrid(players[0]);
+
+// Event listeners
+robotBoard.addEventListener('click', handleAttack);
